@@ -9,3 +9,6 @@ public/system/*
 public/cache/*
 *.sqlite3
 .bundle/*
+doc
+.yardoc
+TODO

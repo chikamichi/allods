@@ -1,0 +1,8 @@
+= simple_form_for character do |f|
+  = f.input :nickname,
+      :label       => t('characters.attributes.nickname')
+
+  = f.input :level,
+      :label       => t('characters.attributes.level')
+  
+  = f.submit t('.submit')

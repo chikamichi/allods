@@ -1,0 +1,3 @@
+%ul
+  - errors.each do |attr, error|
+    %li{:rel => attr}= "#{attr.to_s.capitalize} : #{error}"

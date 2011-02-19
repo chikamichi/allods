@@ -1,0 +1,9 @@
+%p.button= link_to t('.create'), new_loot_machine_path
+
+%hr/
+
+- unless @loot_machines.empty?
+  %ul.loot_machines
+  -@loot_machines.each do |lm|
+    %li= link_to lm.title, loot_machine_path(lm)
+

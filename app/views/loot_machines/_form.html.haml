@@ -1,0 +1,20 @@
+= simple_form_for loot_machine do |f|
+  = f.input :title,
+      :label       => t('.labels.title'),
+      :placeholder => t('.placeholders.title')
+
+  = f.input :description,
+      :label       => t('.labels.description'),
+      :placeholder => t('.placeholders.description'),
+      :required    => false
+  
+  - unless characters.empty?
+    = f.association :characters,
+      :as => :check_boxes,
+      :label => t('.hints.may_add_characters'),
+      :collection => Character.all,
+      :label_method => proc { |c| display_nickname_and_loot_status(c, :loot_machine_id => loot_machine.id) },
+      :collection_wrapper_tag => :ul,
+      :item_wrapper_tag => :li
+
+  = f.submit t('.submit')

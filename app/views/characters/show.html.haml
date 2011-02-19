@@ -1,0 +1,20 @@
+%p= link_to t('.edit'), edit_character_path(@character) if owns?(@character)
+
+#div
+  - unless @character.public_attributes.empty?
+    %ul.public_attributes
+      - @character.attributes.each do |key, value|
+        - if @character.show_attribute?(key)
+          %li{:class => key}
+            %span.key= t("characters.attributes.#{key}")
+             : 
+            %span= format(value, key)
+      - unless owns?(@character)
+        %li{:class => 'owner'}= @character.user.email
+
+  - unless @character.loot_statuses.empty?
+    %h3.groups= t('.groups')
+    - @character.loot_statuses.each do |ls|
+      = render_widget "loot_stats-#{ls.id}"
+
+%p= link_to t('.back_to_index'), characters_path

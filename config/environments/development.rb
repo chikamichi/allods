@@ -1,4 +1,6 @@
-DeviseExample::Application.configure do
+Allods::Application.configure do
+  MY_DOMAIN = 'allods.local:3000'
+
   # Settings specified here will take precedence over those in config/environment.rb
 
   # In the development environment your application's code is reloaded on
@@ -23,6 +25,6 @@ DeviseExample::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => MY_DOMAIN }
 end
 

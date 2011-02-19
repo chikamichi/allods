@@ -1,10 +1,11 @@
-DeviseExample::Application.routes.draw do
+Allods::Application.routes.draw do
   devise_for :users, :admin
 
-  resources :home, :only => :index
+  resources :home,   :only => :index
   resources :admins, :only => :index
 
-  root :to => 'home#index'
+  resources :characters
+  resources :loot_machines
 
-  match '/token' => 'home#token', :as => :token
+  root :to => 'home#index'
 end

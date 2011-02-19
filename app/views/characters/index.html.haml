@@ -1,0 +1,13 @@
+- if user_signed_in?
+  #create_character= link_to t('.new'), new_character_path
+
+- unless @own_characters.empty?
+  %h2= t('.my_characters')
+  = render :partial => 'own_characters_list', :locals => { :characters => @own_characters }
+
+- unless @own_characters.empty?
+  %h2= t('.others_characters')
+- else
+  %h2= t('.all_characters')
+%ul.characters
+  = render :partial => 'characters_list', :locals => { :characters => @characters }
