@@ -1,6 +1,6 @@
 %p= link_to t('.edit'), edit_loot_machine_path(@loot_machine) if current_user.admin?
 
-%div
+%div.loot_machine
   - @loot_machine.attributes.each do |key, value|
     - if @loot_machine.show_attribute?(key)
       %li{:class => key}
@@ -8,8 +8,11 @@
          : 
         %span= format(value, key)
 
-  %ul.characters
-    - @loot_machine.characters.each do |character|
-      %li= display_nickname_and_loot_status(character, :link_to => true, :loot_machine_id => @loot_machine.id)
+  - if user_signed_in? && current_user.admin?
+    = render_widget "loot_machine_console_#{@loot_machine.id}"
+  - else
+    %ul.characters
+      - @loot_machine.characters.each do |character|
+        %li= display_nickname_and_loot_status(character, :link_to => true, :loot_machine_id => @loot_machine.id)
 
 %p= link_to t('.back_to_index'), loot_machines_path

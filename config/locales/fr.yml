@@ -1,11 +1,51 @@
 fr:
+
   errors:
     forbidden: "Vous n'avez pas le droit d'accéder à cette fonctionnalité."
+
+  characters:
+
+    label: "Fiches de personnages"
+    display_nickname_and_loot_status: "%{nickname} (%{status})"
+
+    attributes:
+      nickname: "Pseudo"
+      level: "Niveau"
+      created_at: "Créé le"
+      updated_at: "Dernière mise à jour le"
+    
+    index:
+      new: "Créer un personnage"
+      my_characters: "Mes personnages"
+      others_characters: "Tous les autres personnages"
+      all_characters: "Tous les personnages"
+    
+    new:
+      title: "Création d'une nouvelle fiche personnage"
+    
+    show:
+      title: "%{nickname}"
+      edit: "Modifier mon personnage"
+      groups: "Mes groupes"
+      back_to_index: "Retour à la liste de mes personnages"
+    
+    edit:
+      title: "%{nickname} | modification de la fiche"
+      hint: "Ces informations sont publiques et modifiables à tout moment. Elles ne rentrent pas en compte dans le calcul de vos points."
+      back: "Retour à la fiche"
+      back_to_index: "Retour à la liste de mes personnages"
+    
+    form:
+      submit: "Sauvegarder"
+
   loot_machines:
+
     label: "Groupes de joueurs"
+    
     attributes:
       title: "Intitulé"
       description: "Description"
+    
     form: &loot_machines_form
       submit: "Enregistrer"
       labels:
@@ -16,15 +56,19 @@ fr:
         description: "une description à l'intention des joueurs."
       hints:
         may_add_characters: "Vous pouvez rattacher des joueurs à ce groupe."
+    
     index:
       title: "Groupes"
       hint: "Un groupe rassemble plusieurs joueurs pour un raid, un évènement… Il permet de suivre l'évolution de la participation et des loots dans le cas d'un raid récurrent."
       create: "Créer une nouveau groupe"
+    
     new:
       <<: *loot_machines_form
       title: "Créer un nouveau groupe de joueurs"
+    
     edit:
       <<: *loot_machines_form
+    
     show:
       title: "Groupe « %{group_title} »"
       hint:
@@ -33,40 +77,18 @@ fr:
         other: "%{count} joueurs actifs"
       edit: "Modifier"
       back_to_index: "Retour à la liste"
+    
     flash:
       updated: "Màj OK"
-  characters:
-    label: "Fiches de personnages"
-    display_nickname_and_loot_status: "%{nickname} (%{status})"
-    attributes:
-      nickname: "Pseudo"
-      level: "Niveau"
-      created_at: "Créé le"
-      updated_at: "Dernière mise à jour le"
-    index:
-      new: "Créer un personnage"
-      my_characters: "Mes personnages"
-      others_characters: "Tous les autres personnages"
-      all_characters: "Tous les personnages"
-    new:
-      title: "Création d'une nouvelle fiche personnage"
-    show:
-      title: "%{nickname}"
-      edit: "Modifier mon personnage"
-      groups: "Mes groupes"
-      back_to_index: "Retour à la liste de mes personnages"
-    edit:
-      title: "%{nickname} | modification de la fiche"
-      hint: "Ces informations sont publiques et modifiables à tout moment. Elles ne rentrent pas en compte dans le calcul de vos points."
-      back: "Retour à la fiche"
-      back_to_index: "Retour à la liste de mes personnages"
-    form:
-      submit: "Sauvegarder"
+
   loot_statuses:
+
     attributes:
       need: "Besoin"
       greed: "Cupidité"
       status: "Statut"
+    
     statuses:
       need: "besoin"
       greed: "cupidité"
+

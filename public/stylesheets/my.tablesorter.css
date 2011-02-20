@@ -1,0 +1,17 @@
+table.tablesorter {
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+  font-size: 14px;
+}
+table.tablesorter thead tr .headerSortUp,
+table.tablesorter thead tr .headerSortDown {
+  background-color: #524ECC;
+  color: #fff;
+}
+
+table.tablesorter td.character {
+  font-weight: bold;
+}

@@ -1,4 +1,13 @@
 class LootMachinesController < ApplicationController
+  include Apotomo::Rails::ControllerMethods
+
+  has_widgets do |root|
+    # @see http://rubydoc.info/github/apotonick/apotomo/master/Apotomo/WidgetShortcuts:widget
+    root << widget('loot_machine_widgets/console',
+                   "loot_machine_console_#{@loot_machine.id}",
+                   :loot_machine => @loot_machine)
+  end
+
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :require_adminship,  :except => [:index, :show]
 

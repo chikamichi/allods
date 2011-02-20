@@ -1,0 +1,7 @@
+fr:
+
+  loot_machine_widgets:
+
+    console:
+      display:
+        label: "Console d'administration"

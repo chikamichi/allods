@@ -1,0 +1,69 @@
+---
+  :all:
+    classes:
+      - :warrior
+      - :paladin
+      - :scout
+      - :healer
+      - :warden
+      - :mage
+      - :summoner
+      - :psionicist
+
+    roles:
+      _tank: &tank_roles
+        list:
+          - :tank
+          - :main_tank
+          - :off_tank
+      _heal: &heal_roles
+        list:
+          - :healer
+          - :off_healer
+      _assist: &assist_roles
+        - :assist
+      _control: &control_roles
+        - :control
+      _dps: &dps_roles
+        - :dps
+        - :off_dps
+
+      ## allowed roles for a specific class
+      #for:
+        #warrior:
+          #<<: *tank
+          #<<: *heal
+        #paladin:
+          #<<: *tank
+          #<<: *heal
+        #scout:
+          #<<: *dps
+          #<<: *control
+        #healer:
+          #<<: *heal
+          #<<: *dps
+        #warden:
+          #<<: *dps
+          #<<: *control
+          #<<: *heal
+          #<<: *assist
+        #mage:
+          #<<: *dps
+          #<<: *heal
+          #<<: *control
+        #summoner:
+          #<<: *dps
+          #<<: *control
+          #<<: *heal
+          #<<: *assist
+        #psionicist:
+          #<<: *control
+          #<<: *assist
+
+      # all the roles in a flat list
+      list:
+        <<: *tank_roles
+        <<: *heal_roles
+        #<<: *assist
+        #<<: *control
+        #<<: *dps

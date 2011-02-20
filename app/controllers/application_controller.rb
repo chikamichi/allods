@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery
 
+  # Ensure a user is signed-in and has adminship.
+  # Otherwise, redirect to the index with a error message.
+  #
   def require_adminship
     unless user_signed_in? && current_user.admin?
       flash[:error] = forbidden!
@@ -22,6 +25,8 @@ class ApplicationController < ActionController::Base
     super
   end
 
+  # You know your host.
+  #
   def default_url_options(options = {})
     {
       :host => MY_DOMAIN
@@ -94,13 +99,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Dev-friendly shortcut.
+  # Dev-friendly shortcut to set title interpolations.
   #
   def title!(locals)
     bootstrap_page_with(:title => locals)
   end
 
-  # Dev-friendly shortcut.
+  # Dev-friendly shortcut to set hint interpolations.
   #
   def hint!(locals)
     bootstrap_page_with(:hint => locals)
@@ -114,7 +119,7 @@ class ApplicationController < ActionController::Base
     render :file => "#{Rails.root}/public/403.html", :status => 403 and return
   end
 
-  # Render errors, responding to HTML or JSON.
+  # Render errors, responding to HTML or JSON. HTTP status is set to 406.
   #
   def render_errors(format, errors)
     format.html { render :template => "shared/errors", :locals => {:errors => errors}, :status => :unprocessable_entity }
@@ -126,7 +131,7 @@ class ApplicationController < ActionController::Base
   # Perform something in a specific I18n scope, enforced by the
   # current controller / action tuple.
   #
-  # @yield
+  # @yield if a valid scope can be inferred from the current route.
   #
   def in_current_i18n_scope
     if controller_name && action_name

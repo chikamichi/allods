@@ -9,6 +9,7 @@ gem 'simple_form',     '~>1.3'
 gem 'state_machine',   '~>0.9'
 gem 'haml',            '~>3.0'
 gem 'capistrano',      '~>2.5'
+gem 'configatron',     '~>2.6'
 
 group :development, :test do
   gem 'yard'

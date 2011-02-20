@@ -17,13 +17,18 @@ module Allods
       g.template_engine :haml
       g.test_framework :rspec
     end
+
+    config.action_view.javascript_expansions[:defaults] = %w(rails)
+    config.action_view.javascript_expansions[:jquery_plugins] = %w(jquery.tablesorter.min.js jquery.metadata.js)
     
     config.after_initialize do
       unless Rails.env.production?
         require "#{Rails.root}/spec/spec_helper"
       end
+
       SimpleForm.wrapper_tag = :p
-      $stderr.puts 'Locale: ' + I18n.locale.inspect
+      
+      $stderr.puts 'Using default locale ' + I18n.locale.inspect
     end
   end
 end
