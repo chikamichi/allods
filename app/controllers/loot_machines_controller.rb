@@ -2,10 +2,12 @@ class LootMachinesController < ApplicationController
   include Apotomo::Rails::ControllerMethods
 
   has_widgets do |root|
-    # @see http://rubydoc.info/github/apotonick/apotomo/master/Apotomo/WidgetShortcuts:widget
-    root << widget('loot_machine_widgets/console',
-                   "loot_machine_console_#{@loot_machine.id}",
-                   :loot_machine => @loot_machine)
+    if current_loot_machine
+      # @see http://rubydoc.info/github/apotonick/apotomo/master/Apotomo/WidgetShortcuts:widget
+      root << widget('loot_machine_widgets/console',
+                    "loot_machine_console_#{current_loot_machine.id}",
+                    :loot_machine_id => current_loot_machine.id)
+    end
   end
 
   before_filter :authenticate_user!, :except => [:index, :show]
@@ -72,5 +74,11 @@ class LootMachinesController < ApplicationController
         render_errors(format, @lm.errors)
       end
     end
+  end
+
+  private
+
+  def current_loot_machine
+    @loot_machine = LootMachine.find(params[:loot_machine_id] || params[:id])
   end
 end

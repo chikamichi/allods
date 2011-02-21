@@ -2,6 +2,4 @@ fr:
 
   loot_machine_widgets:
 
-    console:
-      display:
-        label: "Console d'administration"
+  loot_status_widgets:

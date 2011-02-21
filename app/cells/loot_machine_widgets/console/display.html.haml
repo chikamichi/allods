@@ -1,6 +1,4 @@
-%h3= t('.label')
-
-%table{:id => "console_#{@loot_machine.id}", :class => 'console'}
+%table{ :data => { :id => @loot_machine.id }, :class => 'loot_machine_console'}
   %thead
     %tr
       %th= t('characters.attributes.nickname')
@@ -8,6 +6,4 @@
       %th= t('loot_statuses.attributes.greed')
       %th= t('loot_statuses.attributes.status')
   %tbody
-    = render :partial => 'loot_status_line',
-      :collection => @loot_machine.loot_statuses,
-      :as         => :loot_status
+    = render :view => :inner_content

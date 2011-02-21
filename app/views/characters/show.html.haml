@@ -15,6 +15,10 @@
   - unless @character.loot_statuses.empty?
     %h3.groups= t('.groups')
     - @character.loot_statuses.each do |ls|
-      = render_widget "loot_stats-#{ls.id}"
+      %h4= link_to ls.loot_machine.title, loot_machine_path(ls.loot_machine)
+      - if current_user && current_user.admin?
+        = render_widget "loot_status_line_#{ls.id}"
+      - else
+        = render_widget "loot_stats-#{ls.id}"
 
 %p= link_to t('.back_to_index'), characters_path

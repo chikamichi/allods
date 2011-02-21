@@ -9,6 +9,7 @@
         %span= format(value, key)
 
   - if user_signed_in? && current_user.admin?
+    %h3= t('.console')
     = render_widget "loot_machine_console_#{@loot_machine.id}"
   - else
     %ul.characters

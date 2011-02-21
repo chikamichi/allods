@@ -2,8 +2,15 @@ class CharactersController < ApplicationController
   include Apotomo::Rails::ControllerMethods
 
   has_widgets do |root|
-    @character.loot_statuses.each do |ls|
-      root << widget('loot_stats', "loot_stats-#{ls.id}", :ls => ls)
+    #if current_loot_statuses
+      #current_loot_statuses.each do |loot_status|
+        #root << widget('loot_status_widgets/line', "loot_status_line_#{loot_status.id}")
+      #end
+    #end
+    @character.loot_statuses.each do |loot_status|
+      root << widget('loot_status_widgets/line',
+                     "loot_status_line_#{loot_status.id}",
+                     :loot_status => loot_status)
     end
   end
 
@@ -75,4 +82,15 @@ class CharactersController < ApplicationController
       end
     end
   end
+
+  #def current_loot_statuses
+    #return nil unless user_signed_in?
+    #if params[:loot_machine_id]
+      #[ LootStatus.where(:user_id => current_user.id, :loot_machine_id => params[:loot_machine_id]) ]
+    #elsif params[:loot_status_id]
+      #[ LootStatus.find(params[:loot_status_id]) ]
+    #elsif @character
+      #LootStatus.where(:user_id => @character.id)
+    #end
+  #end
 end
