@@ -1,8 +1,0 @@
-%tr
-  %td.character
-    %span.nickname= link_to loot_status.character.nickname, character_path(loot_status.character)
-    -#%p.hover
-      -#%span.level= "(#{loot_status.character.level})" 
-  %td= loot_status.need
-  %td= loot_status.greed
-  %td= t("loot_statuses.statuses.#{loot_status.status}")
