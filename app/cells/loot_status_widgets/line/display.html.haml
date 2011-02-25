@@ -1,9 +1,0 @@
-%tr{ :data => { :id => @loot_status.id, :machine_id => @loot_status.loot_machine.id }, :class => 'loot_status_line' }
-  
-  %td.character
-    %span.nickname= link_to @loot_status.character.nickname, character_path(@loot_status.character)
-
-  %td.editable{ :data => { :type => 'need', :url_for_event => url_for_event(:change)  } }= @loot_status.need
-  %td.editable{ :data => { :type => 'greed', :url_for_event => url_for_event(:change)  } }= @loot_status.greed
-  
-  %td= t("loot_statuses.statuses.#{@loot_status.status}")
