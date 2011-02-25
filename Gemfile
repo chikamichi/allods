@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails',           '~>3.0.4'
 gem 'sqlite3-ruby',                       :require => 'sqlite3'
 
-gem 'apotomo',                            :git => 'git://github.com/apotonick/apotomo.git'
+gem 'apotomo',         '~>1.1.0.rc1'
 gem 'devise',          '1.1.4'
 gem 'simple_form',     '~>1.3'
 gem 'state_machine',   '~>0.9'
