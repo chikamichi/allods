@@ -1,12 +1,5 @@
 class CharactersController < ApplicationController
-  include Apotomo::Rails::ControllerMethods
-
   has_widgets do |root|
-    #if current_loot_statuses
-      #current_loot_statuses.each do |loot_status|
-        #root << widget('loot_status_widgets/line', "loot_status_line_#{loot_status.id}")
-      #end
-    #end
     @character.loot_statuses.each do |loot_status|
       root << widget('loot_status_widgets/line',
                      "loot_status_line_#{loot_status.id}",

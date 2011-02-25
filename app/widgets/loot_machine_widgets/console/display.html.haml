@@ -1,0 +1,9 @@
+%table{ :data => { :id => @loot_machine.id }, :class => 'loot_machine_console'}
+  %thead
+    %tr
+      %th= t('characters.attributes.nickname')
+      %th= t('loot_statuses.attributes.need')
+      %th= t('loot_statuses.attributes.greed')
+      %th= t('loot_statuses.attributes.status')
+  %tbody
+    = render :view => :inner_content

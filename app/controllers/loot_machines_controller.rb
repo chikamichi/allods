@@ -1,12 +1,9 @@
 class LootMachinesController < ApplicationController
-  include Apotomo::Rails::ControllerMethods
-
   has_widgets do |root|
     if current_loot_machine
-      # @see http://rubydoc.info/github/apotonick/apotomo/master/Apotomo/WidgetShortcuts:widget
       root << widget('loot_machine_widgets/console',
-                    "loot_machine_console_#{current_loot_machine.id}",
-                    :loot_machine_id => current_loot_machine.id)
+                     "loot_machine_console_#{current_loot_machine.id}",
+                     :loot_machine_id => current_loot_machine.id)
     end
   end
 
