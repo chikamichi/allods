@@ -27,14 +27,17 @@
           var lm_console = $(this).parents('.loot_machine_console')
             , grid       = lm_console.dataTable();
 
-          // todo: add a nice loader while processing the table
+          // I don't understand why, but at this point the dataTable
+          // features are lost, yet the object remains.
+          // @todo: try not to set bRetrieve, and call dataTable here (it
+          // should recreate it). Try to call fnDraw() as well…
           grid.fnDestroy();
           content.replaceWith(sValue);
           lm_console.dataTable();
         },
 
         submitdata: function ( value, settings ) {
-          // todo: add a nice loader while processing the table
+          // @todo: add a nice loader while processing the table
           return {
             loot_status_id:       ls_line.data('id'),
             loot_machine_id:      ls_line.data('machine_id'),
