@@ -1,1 +1,5 @@
-= @inner_content
+- @loot_machine.loot_statuses.each do |loot_status|
+  %tr{ :data => { :id => loot_status.id, :machine_id => loot_status.loot_machine.id }, :class => 'loot_status_line' }
+    %td.character
+      %span.nickname= link_to loot_status.character.nickname, character_path(loot_status.character)
+    = render_widget "loot_status_line_#{loot_status.id}"

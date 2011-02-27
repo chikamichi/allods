@@ -1,12 +1,15 @@
 module ApplicationHelper
+  def admin?
+    user_signed_in? && current_user.admin?
+  end
+
   def class_for(resource)
     if owns? resource
       if resource.is_a?(User) || resource.is_a?(Character)
-        'myself'
+        return 'myself'
       end
-    else
-      ''
     end
+    return ''
   end
 
   # Determines whether the current user owns the specified

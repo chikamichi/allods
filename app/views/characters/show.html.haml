@@ -2,6 +2,7 @@
 
 #div
   - unless @character.public_attributes.empty?
+    %h3.groups= t('.infos')
     %ul.public_attributes
       - @character.attributes.each do |key, value|
         - if @character.show_attribute?(key)
@@ -9,16 +10,11 @@
             %span.key= t("characters.attributes.#{key}")
              : 
             %span= format(value, key)
-      - unless owns?(@character)
+      - if !owns?(@character) && admin?
         %li{:class => 'owner'}= @character.user.email
 
   - unless @character.loot_statuses.empty?
     %h3.groups= t('.groups')
-    - @character.loot_statuses.each do |ls|
-      %h4= link_to ls.loot_machine.title, loot_machine_path(ls.loot_machine)
-      - if current_user && current_user.admin?
-        = render_widget "loot_status_line_#{ls.id}"
-      - else
-        = render_widget "loot_stats-#{ls.id}"
+    = render_widget "loot_status_container_#{@character.id}"
 
 %p= link_to t('.back_to_index'), characters_path

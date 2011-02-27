@@ -1,4 +1,7 @@
 class LootMachinesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :require_adminship,  :except => [:index, :show]
+
   has_widgets do |root|
     if current_loot_machine
       root << widget('loot_machine_widgets/console',
@@ -6,9 +9,6 @@ class LootMachinesController < ApplicationController
                      :loot_machine_id => current_loot_machine.id)
     end
   end
-
-  before_filter :authenticate_user!, :except => [:index, :show]
-  before_filter :require_adminship,  :except => [:index, :show]
 
   # @get
   #
@@ -26,14 +26,14 @@ class LootMachinesController < ApplicationController
   # @post
   #
   def create
-    @lm = LootMachine.new(params[:loot_machine])
+    @loot_machine = LootMachine.new(params[:loot_machine])
 
     respond_to do |format|
-      if @lm.save
+      if @loot_machine.save
         format.html { redirect_to loot_machines_url, :notice => :created! }
-        format.json { render :json => @lm, :status => :created, :location => loot_machine_url(@lm) }
+        format.json { render :json => @loot_machine, :status => :created, :location => loot_machine_url(@loot_machine) }
       else
-        render_errors(format, @lm.errors)
+        render_errors(format, @loot_machine.errors)
       end
     end
   end
@@ -41,7 +41,8 @@ class LootMachinesController < ApplicationController
   # @get
   #
   def show
-    @loot_machine = LootMachine.find(params[:id])
+    @loot_machine = current_loot_machine 
+
     title! :group_title => @loot_machine.title
     hint!  :count       => @loot_machine.characters.count
 
@@ -54,21 +55,21 @@ class LootMachinesController < ApplicationController
   # @get
   #
   def edit
-    @loot_machine = LootMachine.find(params[:id])
+    @loot_machine = current_loot_machine 
     @characters   = Character.all
   end
 
   # @put
   #
   def update
-    @lm = LootMachine.find(params[:id])
+    @loot_machine = current_loot_machine
 
     respond_to do |format|
-      if @lm.update_attributes(params[:loot_machine])
-        format.html { redirect_to loot_machine_url(@lm), :notice => updated! }
-        format.json { rende  :json => @lm, :status => :ok }
+      if @loot_machine.update_attributes(params[:loot_machine])
+        format.html { redirect_to loot_machine_url(@loot_machine), :notice => updated! }
+        format.json { rende  :json => @loot_machine, :status => :ok }
       else
-        render_errors(format, @lm.errors)
+        render_errors(format, @loot_machine.errors)
       end
     end
   end

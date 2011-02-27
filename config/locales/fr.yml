@@ -3,6 +3,15 @@ fr:
   errors:
     forbidden: "Vous n'avez pas le droit d'accéder à cette fonctionnalité."
 
+  header:
+    home: "§"
+    my_infos: "Mon compte"
+
+  auth:
+    sign_up: "S'inscrire"
+    sign_in: "S'identifier"
+    sign_out: "Se déconnecter"
+
   characters:
 
     label: "Fiches de personnages"
@@ -15,6 +24,7 @@ fr:
       updated_at: "Dernière mise à jour le"
     
     index:
+      title: "Personnages"
       new: "Créer un personnage"
       my_characters: "Mes personnages"
       others_characters: "Tous les autres personnages"
@@ -26,7 +36,8 @@ fr:
     show:
       title: "%{nickname}"
       edit: "Modifier mon personnage"
-      groups: "Mes groupes"
+      infos: "Informations"
+      groups: "Groupes"
       back_to_index: "Retour à la liste de mes personnages"
     
     edit:
@@ -87,7 +98,16 @@ fr:
     attributes:
       need: "Besoin"
       greed: "Cupidité"
+      loyalty: "Loyauté"
+      score: "Score"
       status: "Statut"
+
+      hint:
+        need: "Nombre de loots remportés par un Besoin gagnant"
+        greed: "Nombre de loots remportés par un Cupidité gagnant"
+        loyalty: "Nombre de participations"
+        score: "Un indicateur prenant en compte vos nombres de Besoin, de Cupidité et votre Loyauté"
+        status: "Calculé en fonction du score de chacun des membres"
     
     statuses:
       need: "besoin"

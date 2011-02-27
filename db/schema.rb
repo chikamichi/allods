@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110219201145) do
+ActiveRecord::Schema.define(:version => 20110227181222) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -36,18 +36,20 @@ ActiveRecord::Schema.define(:version => 20110219201145) do
     t.string "title",       :null => false
     t.text   "description"
     t.string "metadata"
+    t.string "bump"
   end
 
   create_table "loot_statuses", :force => true do |t|
     t.integer  "character_id"
     t.integer  "loot_machine_id"
-    t.string   "status",          :default => "need", :null => false
-    t.integer  "need",            :default => 0,      :null => false
-    t.integer  "greed",           :default => 0,      :null => false
-    t.integer  "loyalty",         :default => 0,      :null => false
-    t.string   "score",           :default => "0",    :null => false
+    t.string   "status",                         :default => "need", :null => false
+    t.integer  "need",                           :default => 0,      :null => false
+    t.integer  "greed",                          :default => 0,      :null => false
+    t.integer  "loyalty",                        :default => 0,      :null => false
+    t.float    "score",           :limit => 255, :default => 0.0,    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "bump"
   end
 
   add_index "loot_statuses", ["character_id"], :name => "index_loot_statuses_on_character_id"
@@ -76,5 +78,18 @@ ActiveRecord::Schema.define(:version => 20110219201145) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "versions", :force => true do |t|
+    t.string   "item_type",   :null => false
+    t.integer  "item_id",     :null => false
+    t.string   "event",       :null => false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+    t.text     "description"
+    t.string   "bump"
+  end
+
+  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
 end

@@ -5,7 +5,6 @@ module LootMachineWidgets
     has_widgets do |console|
       setup!
 
-      # LootStatusWidgets
       unless @loot_machine.loot_statuses.empty?
         @loot_machine.loot_statuses.each do |loot_status|
           console << widget('loot_status_widgets/line',
@@ -15,32 +14,43 @@ module LootMachineWidgets
       end
     end
 
+    # @group States
+
     def display
-      $stderr.puts "HERE"
       setup!
       render
     end
 
     def inner_content 
       setup!
-      @inner_content = @loot_machine.loot_statuses.inject("") do |lines, loot_status|
-        lines += render_widget("loot_status_line_#{loot_status.id}")
-      end
       render
     end
 
+    # @group Events
 
-    def refresh
+
+    def refresh(event)
       setup!
 
       # actually, perform updates and run callbacks to compute LootStatus
-      # evolutions for everyone, then render the whole console again.
+      # evolutions for everyone before updating. Maybe a transaction?
 
-      ls = LootStatus.find(params[:loot_status_id])
-      ls.update_attribute(params[:loot_status_metadata].to_sym, params[:value])
+      ls = LootStatus.find(event[:loot_status_id])
+
+      # update the edited metadata with the new value
+      ls.update_attribute(event[:loot_status_metadata].to_sym, event[:value])
+
+      # update the score
+      ls.compute :score
+      # update the status of each member of the loot machine
+      @loot_machine.loot_statuses.each do |loot_status|
+        loot_status.compute :status
+      end
       
       render :view => :inner_content
     end
+
+    # @endgroup
 
     private
 
@@ -49,8 +59,6 @@ module LootMachineWidgets
     # (options is merged to params).
     #
     def setup!
-      logger.debug ">>>>>"
-      logger.debug options.inspect
       @loot_machine = LootMachine.find options[:loot_machine_id]
     end
   end

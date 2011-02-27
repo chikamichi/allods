@@ -1,16 +1,24 @@
 module LootStatusWidgets
   class ContainerWidget < AllodsWidget
-    #has_widgets do |me|
-      #@ls = options[:ls]
+    has_widgets do |me|
+      setup!
 
-      # Each metadata of this LootStatus widget is attached a widget, which will
-      # respond to value change with the appropriate behavior. A reference to the parent
-      # is passed as :ls so that one can retrieve the proper objects through the Rails
-      # relationships.
-      #
-      #@ls.metadatas.each do |key, value|
-        #me << widget('strategy_metadata', "strategy_metadata_#{@ls.id}_#{key}", :ls => @ls)
-      #end
-    #end
+      @loot_statuses.each do |loot_status|
+        me << widget('loot_status_widgets/line',
+                     "loot_status_line_#{loot_status.id}",
+                     :loot_status_id => loot_status.id)
+      end
+    end
+
+    def display
+      setup!
+      render
+    end
+
+    private
+
+    def setup!
+      @loot_statuses = LootStatus.where(:character_id => options[:character_id])
+    end
   end
 end

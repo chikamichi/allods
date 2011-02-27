@@ -1,0 +1,149 @@
+@import compass/css3
+
+@include font-face("Crimson", font-files("Crimson/Crimson-Roman.otf", opentype))
+@include font-face("Aller",   font-files("Aller/Aller_Rg.ttf",        truetype))
+@include font-face("Museo",   font-files("Museo/MuseoSans_500.otf",   opentype), font-files("Museo/MuseoSans_500_Italic.otf", opentype))
+
+body
+  background: url(../../images/bg.jpg) no-repeat center center fixed
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  font-family: 'Museo'
+  font-size: 14px
+  color: #E9E9E9
+
+h1, h2, h3, h4, h5,h6
+  font-family: 'Aller'
+
+a
+  text-decoration: none
+  img
+    border: none
+
+.clear
+  clear: both
+  height: 0
+  overflow: hidden
+
+#container
+  width: 75%
+  margin: 20px auto 0 auto
+  +opacity(0.88)
+
+  #top
+    padding: 20px 25px
+    +border-top-radius(10px)
+    +box-shadow(black, 2px, 2px, 10px)
+    background: black
+    color: white
+
+    a
+      font-family: 'Crimson'
+      color: #F92717
+
+      &:hover
+        color: white
+
+    #header
+      margin: 0
+      padding: 0
+
+      #links
+        float: left
+        width: 20%
+
+        p
+          margin: 0
+          padding: 0
+
+        .home
+          a
+            font-family: 'Museo'
+            font-style: 'italic'
+
+      #user_login_box
+        float: right
+        width: 70%
+        text-align: right
+
+    #page_infos
+      clear: both
+      margin: 0
+      padding: 2px 0 0 0
+
+  #content
+    padding: 20px 25px
+    background: white
+    +border-bottom-radius(10px)
+    +box-shadow(black, 2px, 2px, 10px)
+    color: black
+
+    a
+      color: #F92717
+
+      &:hover
+        background: #F2F2F2
+        color: black
+
+
+#flash_notice, #flash_alert, #flash_error
+  padding: 5px 8px
+  margin: 10px 0
+
+#flash_notice
+  background-color: #CFC
+  border: solid 1px #6C6
+
+#flash_error
+  background-color: #FF6B62
+  border: solid 1px #FF0E00
+  color: #fff
+
+#flash_alert
+  background-color: #FCC
+  border: solid 1px #C66
+
+.fieldWithErrors
+  display: inline
+
+#errorExplanation
+  width: 400px
+  border: 2px solid #CF0000
+  padding: 0px
+  padding-bottom: 12px
+  margin-bottom: 20px
+  background-color: #f0f0f0
+  h2
+    text-align: left
+    font-weight: bold
+    padding: 5px 5px 5px 15px
+    font-size: 12px
+    margin: 0
+    background-color: #c00
+    color: #fff
+  p
+    color: #333
+    margin-bottom: 0
+    padding: 8px
+  ul
+    margin: 2px 24px
+    li
+      font-size: 12px
+      list-style: disc
+
+table
+  th
+    font-family: 'Aller'
+
+  td
+    border: 1px solid black
+  &.loot_machine_console
+    text-align: center
+
+td
+  &.need
+    background: #0FFF52
+  &.greed
+    background: #92E2A9

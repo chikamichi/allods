@@ -1,10 +1,8 @@
 class CharactersController < ApplicationController
   has_widgets do |root|
-    @character.loot_statuses.each do |loot_status|
-      root << widget('loot_status_widgets/line',
-                     "loot_status_line_#{loot_status.id}",
-                     :loot_status => loot_status)
-    end
+    root << widget('loot_status_widgets/container',
+                    "loot_status_container_#{@character.id}",
+                    :character_id => @character.id)
   end
 
   before_filter :authenticate_user!, :except => [:index, :show]

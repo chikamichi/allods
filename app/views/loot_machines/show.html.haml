@@ -1,4 +1,4 @@
-%p= link_to t('.edit'), edit_loot_machine_path(@loot_machine) if current_user.admin?
+%p= link_to t('.edit'), edit_loot_machine_path(@loot_machine) if admin?
 
 %div.loot_machine
   - @loot_machine.attributes.each do |key, value|
@@ -8,7 +8,7 @@
          : 
         %span= format(value, key)
 
-  - if user_signed_in? && current_user.admin?
+  - if admin?
     %h3= t('.console')
     = render_widget "loot_machine_console_#{@loot_machine.id}"
   - else
