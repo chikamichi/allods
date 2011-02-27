@@ -9,6 +9,9 @@ set :scm, :git
 set :scm_username, :git
 set :deploy_via, :remote_cache
 
+default_environment['GEM_PATH']="/home/#{user}/.rvm/gems/#{rvm_ruby_string}:/home/jd/.rvm/gems/ruby-1.9.2-p0@global"
+default_environment['GEM_HOME']="/home/#{user}/.rvm/gems/ruby-1.9.2-p0"
+
 # Specific deploy environments setups.
 desc "development env"
 task :env_dev do
@@ -24,14 +27,6 @@ task :env_dev do
 end
 
 # Tasks to perform.
-namespace :generic do
-  desc "Export $PATH"
-  task :export_path do
-    run "export PATH=/home/#{user}/.rvm/:$PATH"
-    run "export GEM_PATH=/home/#{user}/.rvm/gems/#{rvm_ruby_string}:/home/jd/.rvm/gems/ruby-1.9.2-p0@global"
-    run "export GEM_HOME=/home/#{user}/.rvm/gems/ruby-1.9.2-p0"
-  end
-end
 
 namespace :bundle do
   desc "Install required gems"
@@ -41,8 +36,7 @@ namespace :bundle do
 end
 
 # Let's proceed!
-after "deploy:update_code", "generic:export_path"
-after "generic:export_path", "bundle:install_all"
+after "deploy:update_code", "bundle:install_all"
 after "bundle:install_all", "db:create"
 after "db:create", "deploy:migrate"
 after "deploy:migrate", "deploy:restart"
