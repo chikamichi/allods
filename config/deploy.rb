@@ -35,7 +35,7 @@ namespace :bundle do
 end
 
 # Let's proceed!
-after "deploy:update_code", "bundle:install_all"
-after "bundle:install_all", "db:create"
-after "db:create", "deploy:migrate"
-after "deploy:migrate", "deploy:restart"
+#after "deploy:update_code", "bundle:install_all"
+#after "bundle:install_all", "db:create"
+#after "db:create", "deploy:migrate"
+#after "deploy:migrate", "deploy:restart"
