@@ -9,9 +9,6 @@ set :scm, :git
 set :scm_username, :git
 set :deploy_via, :remote_cache
 
-default_environment['GEM_PATH']="/home/#{user}/.rvm/gems/ruby-1.9.2-p0:/home/jd/.rvm/gems/ruby-1.9.2-p0@global"
-default_environment['GEM_HOME']="/home/#{user}/.rvm/gems/ruby-1.9.2-p0"
-
 # Specific deploy environments setups.
 desc "development env"
 task :env_dev do
