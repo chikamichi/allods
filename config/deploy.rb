@@ -1,15 +1,15 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require "bundler/capistrano"
+#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+#require "bundler/capistrano"
 
 # Generic setup.
 set :user, 'jd'
 set :use_sudo, false
-set :rvm_type, :user
+#set :rvm_type, :user
 set :scm, :git
 set :scm_username, :git
 set :deploy_via, :remote_cache
 
-default_environment['GEM_PATH']="/home/#{user}/.rvm/gems/#{rvm_ruby_string}:/home/jd/.rvm/gems/ruby-1.9.2-p0@global"
+default_environment['GEM_PATH']="/home/#{user}/.rvm/gems/ruby-1.9.2-p0:/home/jd/.rvm/gems/ruby-1.9.2-p0@global"
 default_environment['GEM_HOME']="/home/#{user}/.rvm/gems/ruby-1.9.2-p0"
 
 # Specific deploy environments setups.
@@ -18,7 +18,7 @@ task :env_dev do
   set :application, "hugr.fr"
   set :repository,  "git://github.com/chikamichi/allods.git"
   set :branch, 'master'
-  set :rvm_ruby_string, 'ruby-1.9.2@allods-dev'
+  #set :rvm_ruby_string, 'ruby-1.9.2@allods-dev'
   set :deploy_to, "/home/jd/allods/webapp.dev"
   set :application_type, "development"
   set :rails_env, "development"
