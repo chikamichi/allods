@@ -15,7 +15,7 @@ task :env_dev do
   set :default_environment, {
     'PATH' => '/home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev/bin:/home/jd/.rvm/gems/ruby-1.9.2-p0@global/bin:/home/jd/.rvm/rubies/ruby-1.9.2-p0/bin:/home/jd/.rvm/bin:$PATH',
     'RUBY_VERSION' => 'ruby 1.9.2',
-    'GEM_HOME'     => '/home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev'
+    'GEM_HOME'     => '/home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev',
     'GEM_PATH'     => '/home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev',
     'BUNDLE_PATH'  => '/home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev'
   }
