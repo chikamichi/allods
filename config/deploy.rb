@@ -35,8 +35,6 @@ namespace :bundle do
   desc "Install required gems"
   task :install do
     run "cd #{current_path} && bundle install --deployment --without production"
-end
-
   end
 end
 
