@@ -1,10 +1,6 @@
-#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-#require "bundler/capistrano"
-
 # Generic setup.
 set :user, 'jd'
 set :use_sudo, false
-#set :rvm_type, :user
 set :scm, :git
 set :scm_username, :git
 set :deploy_via, :remote_cache
@@ -13,16 +9,15 @@ set :deploy_via, :remote_cache
 desc "development env"
 task :env_dev do
   set :default_environment, {
-    'PATH' => '/home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev/bin:/home/jd/.rvm/gems/ruby-1.9.2-p0@global/bin:/home/jd/.rvm/rubies/ruby-1.9.2-p0/bin:/home/jd/.rvm/bin:$PATH',
+    'PATH' => '/home/jd/.rvm/gems/ruby-1.9.2-p0/bin:/home/jd/.rvm/gems/ruby-1.9.2-p0@global/bin:/home/jd/.rvm/rubies/ruby-1.9.2-p0/bin:$PATH',
     'RUBY_VERSION' => 'ruby 1.9.2',
-    'GEM_HOME'     => '/home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev',
-    'GEM_PATH'     => '/home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev',
-    'BUNDLE_PATH'  => '/home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev'
+    'GEM_HOME'     => '/home/jd/.rvm/gems/ruby-1.9.2-p0',
+    'GEM_PATH'     => '/home/jd/.rvm/gems/ruby-1.9.2-p0',
+    'BUNDLE_PATH'  => '/home/jd/.rvm/gems/ruby-1.9.2-p0'
   }
   set :application, "hugr.fr"
   set :repository,  "git://github.com/chikamichi/allods.git"
   set :branch, 'master'
-  #set :rvm_ruby_string, 'ruby-1.9.2@allods-dev'
   set :deploy_to, "/home/jd/allods/webapp.dev"
   set :application_type, "development"
   set :rails_env, "development"
