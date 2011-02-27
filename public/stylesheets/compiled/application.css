@@ -104,22 +104,22 @@ a img {
 }
 /* line 62, ../../../app/stylesheets/application.sass */
 #container #top #header #links .home a {
+  font-size: 24px;
   font-family: "Museo";
-  font-style: "italic";
 }
-/* line 66, ../../../app/stylesheets/application.sass */
+/* line 67, ../../../app/stylesheets/application.sass */
 #container #top #header #user_login_box {
   float: right;
   width: 70%;
   text-align: right;
 }
-/* line 71, ../../../app/stylesheets/application.sass */
+/* line 72, ../../../app/stylesheets/application.sass */
 #container #top #page_infos {
   clear: both;
   margin: 0;
   padding: 2px 0 0 0;
 }
-/* line 76, ../../../app/stylesheets/application.sass */
+/* line 77, ../../../app/stylesheets/application.sass */
 #container #content {
   padding: 20px 25px;
   background: white;
@@ -141,47 +141,47 @@ a img {
   box-shadow: black 2px 2px 10px 0;
   color: black;
 }
-/* line 83, ../../../app/stylesheets/application.sass */
+/* line 84, ../../../app/stylesheets/application.sass */
 #container #content a {
   color: #f92717;
 }
-/* line 86, ../../../app/stylesheets/application.sass */
+/* line 87, ../../../app/stylesheets/application.sass */
 #container #content a:hover {
   background: #f2f2f2;
   color: black;
 }
 
-/* line 91, ../../../app/stylesheets/application.sass */
+/* line 92, ../../../app/stylesheets/application.sass */
 #flash_notice, #flash_alert, #flash_error {
   padding: 5px 8px;
   margin: 10px 0;
 }
 
-/* line 95, ../../../app/stylesheets/application.sass */
+/* line 96, ../../../app/stylesheets/application.sass */
 #flash_notice {
   background-color: #ccffcc;
   border: solid 1px #66cc66;
 }
 
-/* line 99, ../../../app/stylesheets/application.sass */
+/* line 100, ../../../app/stylesheets/application.sass */
 #flash_error {
   background-color: #ff6b62;
   border: solid 1px #ff0e00;
   color: white;
 }
 
-/* line 104, ../../../app/stylesheets/application.sass */
+/* line 105, ../../../app/stylesheets/application.sass */
 #flash_alert {
   background-color: #ffcccc;
   border: solid 1px #cc6666;
 }
 
-/* line 108, ../../../app/stylesheets/application.sass */
+/* line 109, ../../../app/stylesheets/application.sass */
 .fieldWithErrors {
   display: inline;
 }
 
-/* line 111, ../../../app/stylesheets/application.sass */
+/* line 112, ../../../app/stylesheets/application.sass */
 #errorExplanation {
   width: 400px;
   border: 2px solid #cf0000;
@@ -190,7 +190,7 @@ a img {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 118, ../../../app/stylesheets/application.sass */
+/* line 119, ../../../app/stylesheets/application.sass */
 #errorExplanation h2 {
   text-align: left;
   font-weight: bold;
@@ -200,40 +200,40 @@ a img {
   background-color: #cc0000;
   color: white;
 }
-/* line 126, ../../../app/stylesheets/application.sass */
+/* line 127, ../../../app/stylesheets/application.sass */
 #errorExplanation p {
   color: #333333;
   margin-bottom: 0;
   padding: 8px;
 }
-/* line 130, ../../../app/stylesheets/application.sass */
+/* line 131, ../../../app/stylesheets/application.sass */
 #errorExplanation ul {
   margin: 2px 24px;
 }
-/* line 132, ../../../app/stylesheets/application.sass */
+/* line 133, ../../../app/stylesheets/application.sass */
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
 }
 
-/* line 137, ../../../app/stylesheets/application.sass */
+/* line 138, ../../../app/stylesheets/application.sass */
 table th {
   font-family: "Aller";
 }
-/* line 140, ../../../app/stylesheets/application.sass */
+/* line 141, ../../../app/stylesheets/application.sass */
 table td {
   border: 1px solid black;
 }
-/* line 142, ../../../app/stylesheets/application.sass */
+/* line 143, ../../../app/stylesheets/application.sass */
 table.loot_machine_console {
   text-align: center;
 }
 
-/* line 146, ../../../app/stylesheets/application.sass */
+/* line 147, ../../../app/stylesheets/application.sass */
 td.need {
   background: #0fff52;
 }
-/* line 148, ../../../app/stylesheets/application.sass */
+/* line 149, ../../../app/stylesheets/application.sass */
 td.greed {
   background: #92e2a9;
 }

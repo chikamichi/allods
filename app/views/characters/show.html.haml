@@ -1,7 +1,7 @@
 %p= link_to t('.edit'), edit_character_path(@character) if owns?(@character)
 
 #div
-  - unless @character.public_attributes.empty?
+  - unless @character.public_attributes.nil?
     %h3.groups= t('.infos')
     %ul.public_attributes
       - @character.attributes.each do |key, value|
