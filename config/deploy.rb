@@ -24,15 +24,27 @@ task :env_dev do
 end
 
 # Tasks to perform.
+namespace :generic do
+  desc "Export $PATH"
+  task :export_path do
+    run "export PATH=/home/#{user}/.rvm/:$PATH"
+  end
+end
+
 namespace :bundle do
   desc "Install required gems"
   task :install do
     run "cd #{current_path} && bundle install --deployment --without production"
+    task :bundle_gems do
+    run "cd #{deploy_to}/current && export PATH=/usr/local/pgsql/bin:/opt/ruby-enterprise-X.X.X/bin:$PATH && bundle install vendor/gems"
+end
+
   end
 end
 
 # Let's proceed!
-after "deploy:update_code", "bundle:install"
+after "deploy:update_code", "generic:export_path"
+after "generic:export_path", "bundle:install"
 after "bundle:install", "db:create"
 after "db:create", "deploy:migrate"
 after "deploy:migrate", "deploy:restart"
