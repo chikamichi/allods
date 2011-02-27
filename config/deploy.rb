@@ -30,7 +30,7 @@ end
 namespace :bundle do
   desc "Install required gems"
   task :install_all do
-    run "cd #{current_path} && bundle install --deployment --without production"
+    run "cd #{current_path} && /home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev/bin/bundle install --deployment --without production"
   end
 end
 
