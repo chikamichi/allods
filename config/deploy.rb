@@ -1,3 +1,5 @@
+require "bundler/capistrano"
+
 set :user, 'jd'
 set :use_sudo, false
 set :scm, :git
@@ -22,15 +24,15 @@ server "#{user}@#{application}", :app, :web, :db, :primary => true
 
 # Tasks to perform.
 
-namespace :bundle do
-  desc "Install required gems"
-  task :install_all do
-    run "cd #{current_path} && /home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev/bin/bundle install --deployment --without development test"
-  end
-end
+#namespace :bundle do
+  #desc "Install required gems"
+  #task :install_all do
+    #run "cd #{current_path} && /home/jd/.rvm/gems/ruby-1.9.2-p0@allods-dev/bin/bundle install --deployment --without development test"
+  #end
+#end
 
 # Let's proceed!
-after "deploy:update_code", "bundle:install_all"
-after "bundle:install_all", "db:create"
-after "db:create", "deploy:migrate"
-after "deploy:migrate", "deploy:restart"
+#after "deploy:update_code", "bundle:install_all"
+#after "bundle:install_all", "db:create"
+#after "db:create", "deploy:migrate"
+#after "deploy:migrate", "deploy:restart"
