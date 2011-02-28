@@ -11,4 +11,5 @@ public/cache/*
 .bundle/*
 doc
 .yardoc
+.rvmrc
 TODO
