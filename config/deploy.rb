@@ -1,4 +1,4 @@
-require "bundler/capistrano"
+#require "bundler/capistrano"
 
 set :user, 'jd'
 set :use_sudo, false
