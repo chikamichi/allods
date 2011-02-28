@@ -26,7 +26,7 @@ class Bootstrap < ActiveRecord::Migration
       t.integer    :need,       :null => false, :default => 0
       t.integer    :greed,      :null => false, :default => 0
       t.integer    :loyalty,    :null => false, :default => 0
-      t.string     :score,      :null => false, :default => 0
+      t.float      :score,      :null => false, :default => 0.0
 
       t.timestamps
     end
