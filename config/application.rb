@@ -27,7 +27,7 @@ module Allods
     end
     
     config.after_initialize do
-      unless Rails.env.production?
+      unless Rails.env.production? || Rails.env.corvus?
         require "#{Rails.root}/spec/spec_helper"
       end
 
