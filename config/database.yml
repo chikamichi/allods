@@ -20,3 +20,10 @@ production:
   database: db/production.sqlite3
   pool: 5
   timeout: 5000
+
+corvus:
+  adapter: mysql2
+  database: allods
+  username: root
+  password: "zpFrKad8"
+  host: localhost

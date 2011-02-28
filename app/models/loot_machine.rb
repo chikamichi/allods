@@ -51,11 +51,10 @@ class LootMachine < ActiveRecord::Base
   end
 
   def version_at
-    logger.debug "---------------"
     obj = super
     
     # fetch all matching LootStatus
-    obj.loot_statuses = Version.where(:item_type => 'LootStatus', :bump => obj.bump)
+    obj.loot_statuses = Version.where(:item_type => 'LootStatus', :bump => obj.bump).map(&:reify)
   
     return obj
   end

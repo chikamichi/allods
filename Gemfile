@@ -1,7 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails',           '~>3.0.4'
+gem 'passenger',       '~>3.0'
 gem 'sqlite3-ruby',    '~>1.3',           :require => 'sqlite3'
+gem 'mysql2'
 gem 'paper_trail',     '~>2.0'
 gem 'apotomo',         '~>1.1.0.rc1'
 gem 'devise',          '1.1.4'
