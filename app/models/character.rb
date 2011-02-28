@@ -21,6 +21,6 @@ class Character < ActiveRecord::Base
   }
 
   scope :for_everyone_but, lambda { |user|
-    { :conditions => ["user_id IS NOT ?", user.id] }
+    { :conditions => ["user_id <> ?", user.id] }
   }
 end
