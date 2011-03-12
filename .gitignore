@@ -12,3 +12,4 @@ public/cache/*
 doc
 .yardoc
 TODO
+tmp_*
