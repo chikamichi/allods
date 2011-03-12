@@ -13,3 +13,4 @@ doc
 .yardoc
 TODO
 tmp_*
+private_*
