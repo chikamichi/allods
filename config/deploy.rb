@@ -33,9 +33,23 @@ server "#{user}@#{application}", :app, :web, :db, :primary => true
     #run "cd #{current_path} && /home/jd/.rvm/gems/ruby-1.9.2@allods/bin/bundle install --deployment --without development test"
   #end
 #end
+namespace :fs do
+  desc "create filesystem required folders"
+  task :create do
+    run "test -d #{shared_path}/log || mkdir #{shared_path}/log"
+    run "test -d #{shared_path}/config || mkdir #{shared_path}/config"
+    run "test -d #{shared_path}/public || mkdir #{shared_path}/public"
+    run "test -d #{shared_path}/public/media || mkdir #{shared_path}/public/media"
+    run "cd #{release_path}/public && ln -s #{shared_path}/public/media media"
+  end
+end
+namespace :bundle do
+  desc "Install required gems"
+  task :install do
+    run "cd #{current_path} && bundle install"
+  end
+end
 
-## Let's proceed!
-#after "deploy:update_code", "bundle:install_all"
-#after "bundle:install_all", "db:create"
-#after "db:create", "deploy:migrate"
-#after "deploy:migrate", "deploy:restart"
+# Let's proceed!
+after 'deploy:symlink', 'fs:create'
+after 'fs:create', 'bundle:install'
