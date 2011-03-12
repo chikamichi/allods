@@ -30,17 +30,17 @@ server "#{user}@#{application}", :app, :web, :db, :primary => true
 namespace :deploy do
   task :start, :depends => [:restart] do
     if server_type == 'thin'
-      run "RAILS_ENV=#{rails_env} thin start -C #{shared_path}/config/thin.yml"
+      run "RAILS_ENV=#{rails_env} thin start -C #{shared_path}/config/thin.yml -A rack"
     end
   end
   task :stop do
     if server_type == 'thin'
-      run "RAILS_ENV=#{rails_env} thin stop -C #{shared_path}/config/thin.yml"
+      run "RAILS_ENV=#{rails_env} thin stop -C #{shared_path}/config/thin.yml -A rack"
     end
   end
   task :restart, :roles => :app, :except => { :no_release => true }  do
     if server_type == 'thin'
-      run "RAILS_ENV=#{rails_env} thin restart -C #{shared_path}/config/thin.yml"
+      run "RAILS_ENV=#{rails_env} thin restart -C #{shared_path}/config/thin.yml -A rack"
     end
   end
 end
