@@ -53,6 +53,7 @@ end
 namespace :fs do
   desc 'Create filesystem required folders'
   task :create do
+    run "test -d /var/www/allods/prod/current || mkdir -p /var/www/allods/prod/current"
     run "test -d #{shared_path}/log || mkdir #{shared_path}/log"
     run "test -d #{shared_path}/config || mkdir #{shared_path}/config"
     run "test -d #{shared_path}/public || mkdir #{shared_path}/public"
