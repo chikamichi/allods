@@ -30,17 +30,17 @@ server "#{user}@#{application}", :app, :web, :db, :primary => true
 namespace :deploy do
   task :start, :depends => [:restart] do
     if server_type == 'thin'
-      run "thin start -C #{shared_path}/config/thin.yml"
+      run "RAILS_ENV=#{rails_env} thin start -C #{shared_path}/config/thin.yml"
     end
   end
   task :stop do
     if server_type == 'thin'
-      run "thin stop -C #{shared_path}/config/thin.yml"
+      run "RAILS_ENV=#{rails_env} thin stop -C #{shared_path}/config/thin.yml"
     end
   end
   task :restart, :roles => :app, :except => { :no_release => true }  do
     if server_type == 'thin'
-      run "thin restart -C #{shared_path}/config/thin.yml"
+      run "RAILS_ENV=#{rails_env} thin restart -C #{shared_path}/config/thin.yml"
     end
   end
 end
@@ -53,10 +53,7 @@ end
 namespace :db do
   desc "Database create"
   task :create do
-    run "cd #{current_path} && rake db:create:all"
-  end
-  task :update_config, :roles => [:app] do
-    run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} rake db:create:all"
   end
 end
 namespace :fs do
