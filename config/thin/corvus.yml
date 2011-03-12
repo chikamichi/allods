@@ -1,5 +1,6 @@
 ---
-pid: /home/jd/allods/webapp/current/tmp/pids/thin.pid
+#pid: /home/jd/allods/webapp/current/tmp/pids/thin.pid
+pid: /var/www/allods/corvus/current/tmp/pids/thin.pid
 address: 127.0.0.1
 timeout: 5
 port: 5000
