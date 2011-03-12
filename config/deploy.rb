@@ -1,5 +1,3 @@
-#require "bundler/capistrano"
-
 set :user, 'jd'
 set :use_sudo, false
 set :scm, :git
@@ -7,11 +5,11 @@ set :scm_username, :git
 set :deploy_via, :remote_cache
 
 set :default_environment, {
-  'PATH' => '/home/jd/.rvm/gems/ruby-1.9.2-p0/bin:/home/jd/.rvm/gems/ruby-1.9.2-p0@global/bin:/home/jd/.rvm/rubies/ruby-1.9.2-p0/bin:$PATH',
+  'PATH' => '/home/jd/.rvm/gems/ruby-1.9.2-p180@allods/bin:/home/jd/.rvm/gems/ruby-1.9.2-p180@global/bin:/home/jd/.rvm/rubies/ruby-1.9.2-p180/bin:$PATH',
   'RUBY_VERSION' => 'ruby 1.9.2',
-  'GEM_HOME'     => '/home/jd/.rvm/gems/ruby-1.9.2-p0',
-  'GEM_PATH'     => '/home/jd/.rvm/gems/ruby-1.9.2-p0',
-  'BUNDLE_PATH'  => '/home/jd/.rvm/gems/ruby-1.9.2-p0'
+  'GEM_HOME'     => '/home/jd/.rvm/gems/ruby-1.9.2-p180@allods',
+  'GEM_PATH'     => '/home/jd/.rvm/gems/ruby-1.9.2-p180@allods',
+  'BUNDLE_PATH'  => '/home/jd/.rvm/gems/ruby-1.9.2-p180@allods'
 }
 set :application, "hugr.fr"
 set :repository,  "git://github.com/chikamichi/allods.git"
