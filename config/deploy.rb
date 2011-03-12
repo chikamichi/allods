@@ -50,6 +50,15 @@ namespace :thin do
     run "cd #{release_path} && cp config/thin/#{rails_env}.yml #{shared_path}/config/thin.yml"
   end
 end
+namespace :db do
+  desc "Database create"
+  task :create do
+    run "cd #{current_path} && rake db:create:all"
+  end
+  task :update_config, :roles => [:app] do
+    run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+end
 namespace :fs do
   desc 'Create filesystem required folders'
   task :create do
@@ -68,7 +77,10 @@ namespace :bundle do
 end
 
 # Let's proceed!
-after  'deploy:symlink', 'fs:create'
-after  'fs:create',      'bundle:install'
-before 'deploy:restart', 'thin:copy'
+after  'deploy:update_code', 'fs:create'
+after  'deploy:symlink',     'db:update_config'
+after  'db:update_config',   'bundle:install'
+after  'db:update_config',   'db:create'
+after  'db:create',          'deploy:migrate'
+before 'deploy:restart',     'thin:copy'
 
