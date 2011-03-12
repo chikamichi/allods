@@ -16,25 +16,42 @@ set :deploy_via, :remote_cache
   #'GEM_PATH'     => '/home/jd/.rvm/gems/ruby-1.9.2-p180@allods',
   #'BUNDLE_PATH'  => '/home/jd/.rvm/gems/ruby-1.9.2-p180@allods'
 #}
-set :application, "hugr.fr"
-set :repository,  "git://github.com/chikamichi/allods.git"
+set :application, 'hugr.fr'
+set :repository,  'git://github.com/chikamichi/allods.git'
 set :branch, 'master'
-set :deploy_to, "/home/jd/allods/webapp"
-set :application_type, "development"
-set :rails_env, "corvus"
-set :default_environment, {"RAILS_ENV" => rails_env}
+set :deploy_to, '/home/jd/allods/webapp'
+set :server_type, 'thin'
+set :application_type, 'development'
+set :rails_env, 'corvus'
+set :default_environment, {'RAILS_ENV' => rails_env}
 server "#{user}@#{application}", :app, :web, :db, :primary => true
 
 # Tasks to perform.
-
-#namespace :bundle do
-  #desc "Install required gems"
-  #task :install_all do
-    #run "cd #{current_path} && /home/jd/.rvm/gems/ruby-1.9.2@allods/bin/bundle install --deployment --without development test"
-  #end
-#end
+namespace :deploy do
+  task :start, :depends => [:restart] do
+    if server_type == 'thin'
+      run "thin start -C #{shared_path}/config/thin.yml"
+    end
+  end
+  task :stop do
+    if server_type == 'thin'
+      run "thin stop -C #{shared_path}/config/thin.yml"
+    end
+  end
+  task :restart, :roles => :app, :except => { :no_release => true }  do
+    if server_type == 'thin'
+      run "thin restart -C #{shared_path}/config/thin.yml"
+    end
+  end
+end
+namespace :thin do
+  desc 'Copy thin config'
+  task :copy do
+    run "cd #{release_path} && cp config/thin/#{rails_env}.yml #{shared_path}/config/thin.yml"
+  end
+end
 namespace :fs do
-  desc "create filesystem required folders"
+  desc 'Create filesystem required folders'
   task :create do
     run "test -d #{shared_path}/log || mkdir #{shared_path}/log"
     run "test -d #{shared_path}/config || mkdir #{shared_path}/config"
@@ -44,12 +61,14 @@ namespace :fs do
   end
 end
 namespace :bundle do
-  desc "Install required gems"
+  desc 'Install required gems'
   task :install do
     run "cd #{current_path} && bundle install"
   end
 end
 
 # Let's proceed!
-after 'deploy:symlink', 'fs:create'
-after 'fs:create', 'bundle:install'
+after  'deploy:symlink', 'fs:create'
+after  'fs:create',      'bundle:install'
+before 'deploy:restart', 'thin:copy'
+
