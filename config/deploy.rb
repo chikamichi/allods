@@ -76,7 +76,7 @@ end
 # Let's proceed!
 after  'deploy:update_code', 'fs:create'
 after  'deploy:symlink',     'bundle:install'
-after  'bundle:install',     'db:create'
+#after  'bundle:install',     'db:create'
 after  'deploy:symlink',     'deploy:cleanup'
 before 'deploy:restart',     'thin:copy'
 
