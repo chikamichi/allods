@@ -23,7 +23,7 @@ set :deploy_to, '/home/jd/allods/webapp'
 set :server_type, 'thin'
 set :application_type, 'development'
 set :rails_env, 'corvus'
-set :default_environment, {'RAILS_ENV' => rails_env}
+set :default_environment, {'RAILS_ENV' => 'corvus'}
 server "#{user}@#{application}", :app, :web, :db, :primary => true
 
 # Tasks to perform.
