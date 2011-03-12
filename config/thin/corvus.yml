@@ -1,6 +1,6 @@
 ---
 pid: /var/www/allods/prod/current/tmp/pids/thin.pid
-address: 0.0.0.0
+address: 127.0.0.1
 timeout: 5
 port: 5000
 log: /var/www/allods/prod/current/log/thin.log
