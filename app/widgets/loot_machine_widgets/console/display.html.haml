@@ -1,10 +1,12 @@
-%table{ :data => { :id => @loot_machine.id }, :class => 'loot_machine_console'}
+%table{ :data => { :id => @loot_machine.id, :admin => admin.to_s }, :class => 'loot_machine_console' }
   %thead
     %tr
       %th= t('characters.attributes.nickname')
-      %th= t('loot_statuses.attributes.need')
-      %th= t('loot_statuses.attributes.greed')
-      %th= t('loot_statuses.attributes.loyalty')
+      %th= t('characters.attributes.archetype')
+      %th= t('characters.attributes.role')
+      %th.editable= t('loot_statuses.attributes.need')
+      %th.editable= t('loot_statuses.attributes.greed')
+      %th.editable= t('loot_statuses.attributes.loyalty')
       %th= t('loot_statuses.attributes.score')
       %th= t('loot_statuses.attributes.status')
   %tbody

@@ -12,13 +12,12 @@
     = yield(:head)
   %body
     #container
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
-
       #top
         #header
           #links
             %p.home= link_to t('header.home'), root_path
+            - flash.each do |name, msg|
+              = content_tag :div, msg, :id => "flash_#{name}", :class => 'flash' if msg.is_a?(String)
 
           #user_login_box
             - if user_signed_in?
@@ -43,3 +42,5 @@
 
       #content
         = yield
+
+        = render :partial => 'shared/footer'

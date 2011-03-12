@@ -1,4 +1,4 @@
-= render :partial => 'form', :locals => { :character => @character }
+.button= link_to t('.back'), character_path(@character)
+.button= link_to t('.back_to_index'), characters_path
 
-%p= link_to t('.back'), character_path(@character)
-%p= link_to t('.back_to_index'), characters_path
+= render :partial => 'form', :locals => { :character => @character }

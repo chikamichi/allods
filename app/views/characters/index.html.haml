@@ -1,13 +1,15 @@
 - if user_signed_in?
-  #create_character= link_to t('.new'), new_character_path
-
-- unless @own_characters.nil?
-  %h2= t('.my_characters')
-  = render :partial => 'own_characters_list', :locals => { :characters => @own_characters }
+  .button= link_to t('.new'), new_character_path
 
 - unless @own_characters.empty?
-  %h2= t('.others_characters')
+  %h3.first= t('.my_characters')
+  = render :partial => 'own_characters_list', :locals => { :characters => @own_characters }
 - else
-  %h2= t('.all_characters')
+  = sign_up_in_links(t('.sign_up_in_hint'))
+
+- unless @own_characters.empty?
+  %h3= t('.others_characters')
+- else
+  %h3= t('.all_characters')
 %ul.characters
   = render :partial => 'characters_list', :locals => { :characters => @characters }

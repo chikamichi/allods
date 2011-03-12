@@ -6,7 +6,8 @@ class LootMachinesController < ApplicationController
     if current_loot_machine
       root << widget('loot_machine_widgets/console',
                      "loot_machine_console_#{current_loot_machine.id}",
-                     :loot_machine_id => current_loot_machine.id)
+                     :loot_machine_id => current_loot_machine.id,
+                     :user => current_user)
     end
   end
 

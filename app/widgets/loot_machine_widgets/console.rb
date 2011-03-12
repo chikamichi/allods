@@ -16,9 +16,9 @@ module LootMachineWidgets
 
     # @group States
 
-    def display
+    def display(opts = {})
       setup!
-      render
+      render :locals => opts
     end
 
     def inner_content 
@@ -32,19 +32,16 @@ module LootMachineWidgets
     def refresh(event)
       setup!
 
-      # actually, perform updates and run callbacks to compute LootStatus
-      # evolutions for everyone before updating. Maybe a transaction?
-
-      ls = LootStatus.find(event[:loot_status_id])
-
-      # update the edited metadata with the new value
-      ls.update_attribute(event[:loot_status_metadata].to_sym, event[:value])
-
-      # update the score
-      ls.compute :score
-      # update the status of each member of the loot machine
-      @loot_machine.loot_statuses.each do |loot_status|
-        loot_status.compute :status
+      unless @user.nil? || !@user.admin?
+        ls = LootStatus.find(event[:loot_status_id])
+        # update the edited metadata with the new value
+        ls.update_attribute(event[:loot_status_metadata].to_sym, event[:value])
+        # update the score
+        ls.compute :score
+        # update the status of each member of the loot machine
+        @loot_machine.loot_statuses.each do |loot_status|
+          loot_status.compute :status
+        end
       end
       
       render :view => :inner_content
@@ -59,6 +56,8 @@ module LootMachineWidgets
     # (options is merged to params).
     #
     def setup!
+      @user = options[:user]
+      logger.debug @user.inspect
       @loot_machine = LootMachine.find options[:loot_machine_id]
     end
   end

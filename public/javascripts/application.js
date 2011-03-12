@@ -3,19 +3,57 @@
 
 (function($) {
   $(document).ready(function() {
+    /**
+     * Fade flash messages out.
+     */
+    $('.flash')
+    .animate({
+      opacity: 0.25
+    }, 5000, function() {
+      // Animation complete.
+      $(this).delay(2000).fadeOut('slow', function() {
+        $(this).remove();
+      });
+    });
+
+    /**
+     * Allods namespace. Provides helpers and the like.
+     */
+    Allods = (function() {
+      var _conf = {
+        dataTable: {
+          // http://www.datatables.net/usage/ and related submenus
+          bRetrieve: true,
+          bInfo: false,
+          bLengthChange: false,
+          bPaginate: false,
+          oLanguage: {
+            sSearch: 'Filtrer :'
+          }
+        }
+      };
+
+      return {
+        LMConsole: function(elt) {
+          $(elt).dataTable(_conf.dataTable);
+        }
+      }
+    })();
+
+    /**
+     * Turn static LootMachine consoles into a dynamic table.
+     */
     $('.loot_machine_console').livequery(function(){
       var that = $(this);
-      
-      that.dataTable({
-        bRetrieve: true
-      });
+
+      Allods.LMConsole(that);
     });
 
     /**
      * Separated from the previous livequery so that a LootStatus line
      * can be rendered on its own.
      */
-    $('td.editable', '.loot_status_line').livequery(function() {
+    $('td.editable', '.loot_machine_console[data-admin=true]').livequery(function() {
       var that       = $(this)
         , ls_line    = that.parents('.loot_status_line')
         , lm_console = ls_line.parents('.loot_machine_console')
@@ -33,7 +71,7 @@
           // should recreate it). Try to call fnDraw() as well…
           grid.fnDestroy();
           content.replaceWith(sValue);
-          lm_console.dataTable();
+          Allods.LMConsole(lm_console);
         },
 
         submitdata: function ( value, settings ) {

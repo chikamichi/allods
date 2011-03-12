@@ -1,10 +1,8 @@
 GIT
   remote: git://github.com/jnicklas/capybara.git
-  revision: 04360cc2918338564a17971f8691f79bbc9172c9
+  revision: 6f2e8c547b6d27678eefc407976ef7296bec4627
   specs:
     capybara (0.4.1.1)
-      celerity (>= 0.7.9)
-      culerity (>= 0.2.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
@@ -42,7 +40,7 @@ GEM
       activemodel (= 3.0.5)
       activesupport (= 3.0.5)
     activesupport (3.0.5)
-    apotomo (1.1.0.rc1)
+    apotomo (1.1.0)
       cells (~> 3.5.4)
       hooks (~> 0.1.3)
       onfire (~> 0.1.2)
@@ -57,16 +55,15 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
-    celerity (0.8.8)
-    cells (3.5.4)
-      rails (~> 3.0.0)
+    cells (3.5.5)
+      actionpack (~> 3.0.0)
+      railties (~> 3.0.0)
     childprocess (0.1.7)
       ffi (~> 0.6.3)
     compass (0.10.6)
       haml (>= 3.0.4)
     configatron (2.6.4)
       yamler (>= 0.1.0)
-    culerity (0.2.15)
     daemon_controller (0.2.6)
     devise (1.1.4)
       bcrypt-ruby (~> 2.1.2)
@@ -86,10 +83,10 @@ GEM
     highline (1.6.1)
     hirb (0.4.0)
     hooks (0.1.3)
-    hpricot (0.8.3)
+    hpricot (0.8.4)
     i18n (0.5.0)
     json_pure (1.5.1)
-    looksee (0.2.1)
+    looksee (1.0.0)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -102,14 +99,14 @@ GEM
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.1.0)
+    net-ssh (2.1.3)
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.4.4)
     onfire (0.1.2)
     paper_trail (2.0.1)
       rails (~> 3)
-    passenger (3.0.3)
+    passenger (3.0.5)
       daemon_controller (>= 0.2.5)
       fastthread (>= 1.0.1)
       file-tail
@@ -148,12 +145,15 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.5.0)
+    ruby_parser (2.0.6)
+      sexp_processor (~> 3.0)
     rubyzip (0.9.4)
     selenium-webdriver (0.1.3)
       childprocess (~> 0.1.5)
       ffi (~> 0.6.3)
       json_pure
       rubyzip
+    sexp_processor (3.0.5)
     simple_form (1.3.1)
     spruz (0.2.5)
     sqlite3 (1.3.3)
@@ -177,7 +177,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  apotomo (~> 1.1.0.rc1)
+  apotomo (~> 1.1)
   awesome_print
   capistrano (~> 2.5)
   capybara!
@@ -196,6 +196,7 @@ DEPENDENCIES
   passenger (~> 3.0)
   rails (~> 3.0.4)
   rspec-rails (~> 2.5)
+  ruby_parser
   simple_form (~> 1.3)
   sqlite3-ruby (~> 1.3)
   state_machine (~> 0.9)

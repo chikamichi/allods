@@ -5,7 +5,7 @@ gem 'passenger',       '~>3.0'
 gem 'sqlite3-ruby',    '~>1.3',           :require => 'sqlite3'
 gem 'mysql2'
 gem 'paper_trail',     '~>2.0'
-gem 'apotomo',         '~>1.1.0.rc1'
+gem 'apotomo',         '~>1.1'
 gem 'devise',          '1.1.4'
 gem 'simple_form',     '~>1.3'
 gem 'state_machine',   '~>0.9'
@@ -16,6 +16,7 @@ gem 'configatron',     '~>2.6'
 
 group :development, :test do
   # irbrc
+  gem 'ruby_parser'
   gem 'awesome_print'
   gem 'hpricot'
   gem 'looksee'

@@ -14,6 +14,7 @@ class CharactersController < ApplicationController
       @own_characters = Character.for current_user
       @characters = Character.for_everyone_but current_user
     else
+      @own_characters = []
       @characters = Character.all
     end
   end

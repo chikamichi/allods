@@ -1,20 +1,15 @@
-%p= link_to t('.edit'), edit_character_path(@character) if owns?(@character)
+- if owns?(@character)
+  .button= link_to t('.edit'), edit_character_path(@character)
+- elsif admin?
+  .button= link_to t('.edit_as_admin'), edit_character_path(@character)
+.button= link_to t('.back_to_index'), characters_path
 
 #div
   - unless @character.public_attributes.nil?
-    %h3.groups= t('.infos')
-    %ul.public_attributes
-      - @character.attributes.each do |key, value|
-        - if @character.show_attribute?(key)
-          %li{:class => key}
-            %span.key= t("characters.attributes.#{key}")
-             : 
-            %span= format(value, key)
-      - if !owns?(@character) && admin?
-        %li{:class => 'owner'}= @character.user.email
+    %h3.first.groups= t('.infos')
+    = display(:show_attributes, @character)
 
   - unless @character.loot_statuses.empty?
     %h3.groups= t('.groups')
     = render_widget "loot_status_container_#{@character.id}"
 
-%p= link_to t('.back_to_index'), characters_path
