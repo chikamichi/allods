@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :rememberable, :registerable, :trackable, :timeoutable,
          :validatable, :token_authenticatable,
          :timeout_in => 2.hours
+  
+  has_many :characters
 
   attr_accessible :email, :password, :password_confirmation
 
