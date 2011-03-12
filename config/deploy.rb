@@ -81,6 +81,5 @@ after  'deploy:update_code', 'fs:create'
 after  'deploy:symlink',     'db:update_config'
 after  'db:update_config',   'bundle:install'
 after  'db:update_config',   'db:create'
-after  'db:create',          'deploy:migrate'
 before 'deploy:restart',     'thin:copy'
 
