@@ -98,11 +98,11 @@
 
     $('.archetype')
     .livequery(function() {
-      var that      = $(this)
-        , archetype = that.val();
+      var that     = $(this)
+        , selected = $(':selected', that);
 
-      if (that.attr('checked')) {
-        Allods.display_roles_radios_for(archetype);
+      if (selected.length) {
+        Allods.display_roles_radios_for(selected.val());
       }
     })
     .livequery('change', function(e) {

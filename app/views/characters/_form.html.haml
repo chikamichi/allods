@@ -10,7 +10,6 @@
         
   = f.input :archetype,
       :collection   => configatron.character.archetypes,
-      :as           => :radio,
       :label_method => proc { |archetype| t("characters.archetypes.#{archetype}") },
       :label        => t('characters.attributes.archetype'),
       :input_html   => { :class => 'archetype' }
