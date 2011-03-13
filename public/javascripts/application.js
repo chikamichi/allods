@@ -31,6 +31,10 @@
             sSearch: 'Filtrer :',
             sZeroRecords: 'Aucun résultat.'
           }
+        },
+        typeWatch: {
+          wait: 350,
+          captureLength: 1
         }
       };
 
@@ -40,10 +44,27 @@
         },
 
         display_roles_radios_for: function(archetype) {
-          $('.roles_for').hide(0, function() {
-            $('.roles_for[data-archetype=' + archetype + ']').show();
-            //$('input.role:selected').attr('checked', '');
+          $('.roles_for').fadeOut('fast', function() {
+            $('.roles_for[data-archetype=' + archetype + ']').fadeIn('fast');
           });
+        },
+        
+        compute_status: function() {
+          var scores = $('td.score');
+
+          if (!scores.length)
+            return null;
+
+          scores = _(scores).map(function(score) {
+            return $(score).data('score');
+          });
+
+          max = _.max(scores);
+          min = _.min(scores);
+
+          $('td.score').animate({ backgroundColor: '#92E2A9' }, 100);
+          $('td.score[data-score=' + max + ']').animate({ backgroundColor: '#0FFF52' }, 200);
+          $('td:not(.editable)', 'tr.loot_status_line[data-score=' + max + ']').animate({ backgroundColor: '#0FFF52' }, 200);
         }
       }
     })();
@@ -111,5 +132,12 @@
 
       Allods.display_roles_radios_for(archetype);
     });
+
+    $('.dataTables_filter input[type=text]').bind('keyup', function() {
+      $('td:not(.editable)', 'tr.loot_status_line').css('background', 'none');
+      $('td.score').css('background', 'none');
+    }).typeWatch($.extend(Allods.conf, {
+      callback: Allods.compute_status
+    }));
   });
 })(jQuery);

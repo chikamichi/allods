@@ -6,7 +6,6 @@
       %th= t('loot_statuses.attributes.greed')
       %th= t('loot_statuses.attributes.loyalty')
       %th= t('loot_statuses.attributes.score')
-      %th= t('loot_statuses.attributes.status')
   %tbody
     - @loot_statuses.each do |loot_status|
       %tr{ :data => { :id => loot_status.id, :machine_id => loot_status.loot_machine.id }, :class => 'loot_status_line' }

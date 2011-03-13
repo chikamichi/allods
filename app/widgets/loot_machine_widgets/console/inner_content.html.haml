@@ -1,5 +1,5 @@
 - @loot_machine.loot_statuses.each do |loot_status|
-  %tr{ :data => { :id => loot_status.id, :machine_id => loot_status.loot_machine.id }, :class => 'loot_status_line' }
+  %tr{ :data => { :id => loot_status.id, :machine_id => loot_status.loot_machine.id, :score => loot_status.score.to_i }, :class => 'loot_status_line' }
     %td.character
       %span.nickname= link_to loot_status.character.nickname, character_path(loot_status.character)
     %td.archetype

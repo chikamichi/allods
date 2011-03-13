@@ -18,13 +18,8 @@ module Allods
       g.test_framework :rspec
     end
 
-    config.action_view.javascript_expansions[:defaults]       = %w(rails)
-    config.action_view.javascript_expansions[:jquery_plugins] = %w(jquery.livequery.js jquery.dataTables.js jquery.jeditable.js)
-    # use minified versions in production
-    minified = Rails.env.production? ? '.min' : ''
-    [:jquery_plugins].each do |js_exp|
-      config.action_view.javascript_expansions[js_exp] = config.action_view.javascript_expansions[js_exp].map { |js| js.gsub(/.js$/, minified + '.js') }
-    end
+    config.action_view.javascript_expansions[:defaults]       = %w(rails underscore)
+    config.action_view.javascript_expansions[:jquery_plugins] = %w(jquery.livequery.js jquery.dataTables.js jquery.jeditable.js jquery.typewatch.js)
     
     config.after_initialize do
       unless Rails.env.production? || Rails.env.corvus?
