@@ -37,6 +37,13 @@
       return {
         LMConsole: function(elt) {
           $(elt).dataTable(_conf.dataTable);
+        },
+
+        display_roles_radios_for: function(archetype) {
+          $('.roles_for').hide(0, function() {
+            $('.roles_for[data-archetype=' + archetype + ']').show();
+            //$('input.role:selected').attr('checked', '');
+          });
         }
       }
     })();
@@ -87,6 +94,23 @@
         cssclass: 'editable',
         height: "12px"
       });
+    });
+
+    $('.archetype')
+    .livequery(function() {
+      var that      = $(this)
+        , archetype = that.attr('value');
+
+      if (that.attr('checked')) {
+        Allods.display_roles_radios_for(archetype);
+      }
+    })
+    .livequery('change', function(e) {
+      e.preventDefault();
+      var that      = $(this)
+        , archetype = that.attr('value');
+
+      Allods.display_roles_radios_for(archetype);
     });
   });
 })(jQuery);

@@ -3,18 +3,25 @@
       :label => t('characters.attributes.nickname')
 
   = f.input :level,
-      :label => t('characters.attributes.level')
+      :as         => :select,
+      :collection => (configatron.character.levels.min..configatron.character.levels.max).sort.reverse,
+      :label      => t('characters.attributes.level'),
+      :input_html => { :class => 'level' }
         
   = f.input :archetype,
       :collection   => configatron.character.archetypes,
       :as           => :radio,
       :label_method => proc { |archetype| t("characters.archetypes.#{archetype}") },
-      :label        => t('characters.attributes.archetype')
+      :label        => t('characters.attributes.archetype'),
+      :input_html   => { :class => 'archetype' }
   
-  = f.input :role,
-      :collection   => configatron.character.roles.list,
-      :as           => :radio,
-      :label_method => proc { |role| t("characters.roles.#{role}") },
-      :label        => t('characters.attributes.role')
+  - configatron.character.archetypes.each do |archetype|
+    %div{ :class => 'roles_for', :data => { :archetype => archetype } }
+      = f.input :role,
+          :collection   => configatron.character.roles.for.send(archetype),
+          :as           => :radio,
+          :label_method => proc { |role| t("characters.roles.#{role}") },
+          :label        => t('characters.attributes.role'),
+          :input_html   => { :class => 'role' }
   
   = f.submit t('.submit')

@@ -12,6 +12,10 @@
         - :summoner
         - :psionicist
 
+      levels:
+        min: 1
+        max: 42
+
       armours:
         cloth: &cloth
           - :cloth
@@ -46,7 +50,7 @@
           - :tank
           - :main_tank
           - :off_tank
-        heal: &heal_roles
+        healer: &healer_roles
           - :healer
           - :off_healer
         assist: &assist_roles
@@ -59,21 +63,21 @@
 
         for:
           warrior:
-            <<: [*tank_roles, *heal_roles, *void]
+            <<: [*tank_roles, *healer_roles, *void]
           paladin:
-            <<: [*tank_roles, *heal_roles, *void]
+            <<: [*tank_roles, *healer_roles, *void]
           scout:
             <<: [*dps_roles, *control_roles, *void]
           healer:
-            <<: [*heal_roles, *dps_roles, *void]
+            <<: [*healer_roles, *dps_roles, *void]
           warden:
-            <<: [*dps_roles, *control_roles, *heal_roles, *assist_roles, *void]
+            <<: [*dps_roles, *control_roles, *healer_roles, *assist_roles, *void]
           mage:
-            <<: [*dps_roles, *heal_roles, *control_roles, *void]
+            <<: [*dps_roles, *healer_roles, *control_roles, *void]
           summoner:
-            <<: [*dps_roles, *control_roles, *heal_roles, *assist_roles, *void]
+            <<: [*dps_roles, *control_roles, *healer_roles, *assist_roles, *void]
           psionicist:
             <<: [*control_roles, *assist_roles, *void]
 
         list:
-          <<: [*tank_roles, *heal_roles, *assist_roles, *control_roles, *dps_roles, *void]
+          <<: [*tank_roles, *healer_roles, *assist_roles, *control_roles, *dps_roles, *void]

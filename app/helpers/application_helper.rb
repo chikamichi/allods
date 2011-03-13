@@ -55,7 +55,8 @@ module ApplicationHelper
                  end
 
     unless attributes.nil? || attributes.empty?
-      str = '<ul>'
+      str = ''
+      str += '<ul>' unless opts[:nowrap]
       attributes.each do |attr|
         value = resource.send(attr)
         unless value.blank? || opts[:except].include?(attr)
@@ -67,7 +68,7 @@ module ApplicationHelper
           str += "</span>"
         end
       end
-      str += '</ul>'
+      str += '</ul>' unless opts[:nowrap]
 
       return str.html_safe
     else

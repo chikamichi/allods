@@ -7,7 +7,12 @@
 #div
   - unless @character.public_attributes.nil?
     %h3.first.groups= t('.infos')
-    = display(:show_attributes, @character)
+    %ul.attributes
+      = display(:show_attributes, @character, :nowrap => true)
+      %li
+        %span.attribute= t('characters.attributes.armour')
+         : 
+        %span= display_armours(@character)
 
   - unless @character.loot_statuses.empty?
     %h3.groups= t('.groups')
