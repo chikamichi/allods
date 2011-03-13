@@ -11,7 +11,7 @@
       = display(:show_attributes, @character, :nowrap => true)
       %li
         %span.attribute= t('characters.attributes.armour')
-         : 
+        \:
         %span= display_armours(@character)
 
   - unless @character.loot_statuses.empty?

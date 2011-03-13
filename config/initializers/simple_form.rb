@@ -32,7 +32,7 @@ SimpleForm.setup do |config|
   config.wrapper_tag = :div
 
   # CSS class to add to all wrapper tags.
-  # config.wrapper_class = :input
+  config.wrapper_class = :input
 
   # CSS class to add to the wrapper if the field has errors.
   # config.wrapper_error_class = :field_with_errors

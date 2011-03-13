@@ -99,16 +99,15 @@
     $('.archetype')
     .livequery(function() {
       var that      = $(this)
-        , archetype = that.attr('value');
+        , archetype = that.val();
 
       if (that.attr('checked')) {
         Allods.display_roles_radios_for(archetype);
       }
     })
     .livequery('change', function(e) {
-      e.preventDefault();
       var that      = $(this)
-        , archetype = that.attr('value');
+        , archetype = that.val();
 
       Allods.display_roles_radios_for(archetype);
     });

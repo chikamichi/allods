@@ -22,6 +22,6 @@
           :as           => :radio,
           :label_method => proc { |role| t("characters.roles.#{role}") },
           :label        => t('characters.attributes.role'),
-          :input_html   => { :class => 'role' }
+          :input_html   => { :class => 'role', :name => "roles_group_for_#{archetype}" }
   
   = f.submit t('.submit')

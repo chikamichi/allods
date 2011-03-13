@@ -1,6 +1,6 @@
 class LootMachine < ActiveRecord::Base
   has_many :loot_statuses
-  has_many :characters, :through => :loot_statuses
+  has_many :characters, :through => :loot_statuses, :validate => false
 
   has_paper_trail :only => :bump, :meta => { :bump => Proc.new { |loot_machine| loot_machine.bump } }
 

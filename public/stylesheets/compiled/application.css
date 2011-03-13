@@ -307,7 +307,13 @@ label {
   display: block;
 }
 
-/* line 201, ../../../app/stylesheets/application.sass */
+/* line 203, ../../../app/stylesheets/application.sass */
+p.input label:first-child {
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+/* line 207, ../../../app/stylesheets/application.sass */
 .roles_for {
   display: none;
 }

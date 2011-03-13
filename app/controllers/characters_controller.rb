@@ -65,6 +65,9 @@ class CharactersController < ApplicationController
   def update
     @character = Character.find(params[:id])
 
+    # smart JS require to extract the role from the proper radio buttons values set
+    params[:character][:role] = params.find { |k,v| k =~ /roles_group_for_#{params[:character][:archetype]}/ }.last
+
     respond_to do |format|
       if @character.update_attributes(params[:character])
         format.html { redirect_to character_url(@character), :notice => updated! }
