@@ -75,6 +75,14 @@ module ApplicationHelper
     end
   end
 
+  def display_armours(character)
+    return nil if character.archetype.blank?
+
+    configatron.character.armours.for.send(character.archetype).map do |a|
+      I18n.t("characters.armours.#{a}").downcase
+    end.join(', ')
+  end
+
   # Format an attribute. If the key is provided, the attribute
   # type may be infered for a better guess. In case no smart guess
   # can be made, the value is returned as is.
@@ -90,9 +98,6 @@ module ApplicationHelper
   # @todo add support for a type option to enforce formatting?
   #
   def format(value, key = nil, model = nil)
-    $stderr.puts value.inspect
-    $stderr.puts key.inspect
-    $stderr.puts model.inspect
     if !key.nil?
       if key.to_s.ends_with?('_at')
         l(value.to_date)

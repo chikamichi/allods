@@ -1,5 +1,6 @@
 ---
   :all:
+    void: &void
     character:
       archetypes:
         - :warrior
@@ -11,58 +12,68 @@
         - :summoner
         - :psionicist
 
+      armours:
+        cloth: &cloth
+          - :cloth
+        leather: &leather
+          - :leather
+        plate: &plate
+          - :plate
+
+        list:
+          <<: [*cloth, *leather, *plate, *void]
+
+        for:
+          warrior:
+            <<: [*leather, *plate, *void]
+          paladin:
+            <<: [*leather, *plate, *void]
+          scout:
+            <<: [*leather, *void]
+          healer:
+            <<: [*cloth, *leather, *plate, *void]
+          warden:
+            <<: [*cloth, *leather, *void]
+          mage:
+            <<: [*cloth, *void]
+          summoner:
+            <<: [*cloth, *void]
+          psionicist:
+            <<: [*cloth, *leather, *void]
+
       roles:
-        _tank: &tank_roles
+        tank: &tank_roles
           - :tank
           - :main_tank
           - :off_tank
-        _heal: &heal_roles
+        heal: &heal_roles
           - :healer
           - :off_healer
-        #_assist: &assist_roles
-          #- :assist
-        #_control: &control_roles
-          #- :control
-        #_dps: &dps_roles
-          #- :dps
-          #- :off_dps
-
-        ## allowed roles for a specific class
-        #for:
-          #warrior:
-            #<<: *tank
-            #<<: *heal
-          #paladin:
-            #<<: *tank
-            #<<: *heal
-          #scout:
-            #<<: *dps
-            #<<: *control
-          #healer:
-            #<<: *heal
-            #<<: *dps
-          #warden:
-            #<<: *dps
-            #<<: *control
-            #<<: *heal
-            #<<: *assist
-          #mage:
-            #<<: *dps
-            #<<: *heal
-            #<<: *control
-          #summoner:
-            #<<: *dps
-            #<<: *control
-            #<<: *heal
-            #<<: *assist
-          #psionicist:
-            #<<: *control
-            #<<: *assist
-
-        # all the roles in a flat list
-        list:
-          - :tank
-          - :heal
-          - :dps
+        assist: &assist_roles
           - :assist
+        control: &control_roles
           - :control
+        dps: &dps_roles
+          - :dps
+          - :off_dps
+
+        for:
+          warrior:
+            <<: [*tank_roles, *heal_roles, *void]
+          paladin:
+            <<: [*tank_roles, *heal_roles, *void]
+          scout:
+            <<: [*dps_roles, *control_roles, *void]
+          healer:
+            <<: [*heal_roles, *dps_roles, *void]
+          warden:
+            <<: [*dps_roles, *control_roles, *heal_roles, *assist_roles, *void]
+          mage:
+            <<: [*dps_roles, *heal_roles, *control_roles, *void]
+          summoner:
+            <<: [*dps_roles, *control_roles, *heal_roles, *assist_roles, *void]
+          psionicist:
+            <<: [*control_roles, *assist_roles, *void]
+
+        list:
+          <<: [*tank_roles, *heal_roles, *assist_roles, *control_roles, *dps_roles, *void]

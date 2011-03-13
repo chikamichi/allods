@@ -31,20 +31,25 @@ fr:
     display_nickname_and_loot_status: "%{nickname} (%{status})"
 
     flash:
-      updated: "Modification enregistrée"
+      updated: 'Modification enregistrée'
 
     attributes:
-      nickname: "Pseudo"
-      level: "Niveau"
+      nickname: 'Pseudo'
+      level: 'Niveau'
       archetype: 'Classe / archétype'
+      armour: 'Armure'
       role: 'Rôle / build'
-      created_at: "Créé le"
-      updated_at: "Dernière mise à jour le"
+      created_at: 'Créé le'
+      updated_at: 'Dernière mise à jour le'
 
     roles: &character_roles
-      dps: 'DPS'
       tank: 'Tank'
-      heal: 'Soins'
+      main_tank: 'Tank principal'
+      off_tank: 'Tank (soutien)'
+      healer: 'Soins'
+      off_healer: 'Soins (soutien)'
+      dps: 'DPS'
+      off_dps: 'DPS (soutien)'
       assist: 'Assist'
       control: 'Control'
     role:
@@ -61,6 +66,13 @@ fr:
       psionicist: 'Psionique'
     archetype:
       <<: *character_archetypes
+
+    armours: &armours
+      cloth: 'Tissu'
+      leather: 'Cuir'
+      plate: 'Plaques'
+    armour:
+      <<: *armour
     
     index:
       title: "Personnages"

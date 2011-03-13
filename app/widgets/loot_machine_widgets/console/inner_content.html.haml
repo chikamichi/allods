@@ -3,7 +3,11 @@
     %td.character
       %span.nickname= link_to loot_status.character.nickname, character_path(loot_status.character)
     %td.archetype
-      %span= t("characters.archetypes.#{loot_status.character.archetype}") unless loot_status.character.archetype.blank?
+      - unless loot_status.character.archetype.blank?
+        %span= t("characters.archetypes.#{loot_status.character.archetype}")
+    %td.armour
+      - unless loot_status.character.archetype.blank?
+        %span= display_armours(loot_status.character)
     %td.role
       %span= t("characters.roles.#{loot_status.character.role}") unless loot_status.character.role.blank?
     = render_widget "loot_status_line_#{loot_status.id}"

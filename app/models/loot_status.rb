@@ -9,6 +9,10 @@ class LootStatus < ActiveRecord::Base
   # group looting strategy/scheme.
   STATUS = [:need, :greed]
 
+  #scope :archetype, lambda { |archetype|
+    #includes(:character).where('characters.archetype=?', archetype)
+  #}
+
   # Compute a dependent meta.
   #
   # @param [Symbol] what :score, :status

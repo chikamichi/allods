@@ -2,6 +2,7 @@
 # and mixins useful modules, helpers…
 #
 class AllodsWidget < Apotomo::Widget
+  helper ApplicationHelper
 end
 
 # FIXME: this is mandatory for Apotomo to find the classes

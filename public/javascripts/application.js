@@ -28,7 +28,8 @@
           bLengthChange: false,
           bPaginate: false,
           oLanguage: {
-            sSearch: 'Filtrer :'
+            sSearch: 'Filtrer :',
+            sZeroRecords: 'Aucun résultat.'
           }
         }
       };

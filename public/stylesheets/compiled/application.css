@@ -275,7 +275,7 @@ table th.editable {
 }
 /* line 181, ../../../app/stylesheets/application.sass */
 table td {
-  border: 1px solid black;
+  border: 1px solid #999999;
 }
 /* line 184, ../../../app/stylesheets/application.sass */
 table td.editable {
