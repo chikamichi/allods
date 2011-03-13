@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/chikamichi/configatron.git
+  revision: 23312ddbcbeb30e9484750619953497be11e4296
+  branch: syck_merge_key
+  specs:
+    configatron (2.6.4.20101006112551)
+      yamler (>= 0.1.0)
+
+GIT
   remote: git://github.com/jnicklas/capybara.git
   revision: 6f2e8c547b6d27678eefc407976ef7296bec4627
   specs:
@@ -62,8 +70,6 @@ GEM
       ffi (~> 0.6.3)
     compass (0.10.6)
       haml (>= 3.0.4)
-    configatron (2.6.4)
-      yamler (>= 0.1.0)
     daemon_controller (0.2.6)
     daemons (1.1.0)
     devise (1.1.4)
@@ -88,6 +94,8 @@ GEM
     hpricot (0.8.4)
     i18n (0.5.0)
     json_pure (1.5.1)
+    kaminari (0.10.4)
+      rails (>= 3.0.0)
     looksee (1.0.0)
     mail (2.2.15)
       activesupport (>= 2.3.6)
@@ -188,19 +196,20 @@ DEPENDENCIES
   capistrano (~> 2.5)
   capybara!
   compass (~> 0.10)
-  configatron (~> 2.6)
+  configatron!
   devise (= 1.1.4)
   factory_girl (~> 1.3)
   faker (~> 0.3)
   haml (~> 3.0)
   hirb
   hpricot
+  kaminari (~> 0.10)
   looksee
   map_by_method
-  mysql2
+  mysql2 (~> 0.2)
   paper_trail (~> 2.0)
   passenger (~> 3.0)
-  rails (~> 3.0.4)
+  rails (~> 3.0)
   rspec-rails (~> 2.5)
   ruby_parser
   simple_form (~> 1.3)
