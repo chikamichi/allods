@@ -1,6 +1,6 @@
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require 'rvm/capistrano'
-require './capistrano_database_yml'
+require File.expand_path './config/capistrano_database_yml.rb'
 
 set :rvm_ruby_string, 'ruby-1.9.2@allods'
 set :rvm_type, :user
