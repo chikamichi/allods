@@ -1,7 +1,5 @@
-- if user_signed_in?
+- if admin?
   %p.button= link_to t('.create'), new_loot_machine_path
-- else
-  = sign_up_in_links(t('.sign_up_in_hint'))
 
 - unless @loot_machines.empty?
   %ul.loot_machines
