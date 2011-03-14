@@ -29,21 +29,21 @@
 
         for:
           warrior:
-            <<: [*leather, *plate, *void]
+            <<: [*plate, *void]
           paladin:
-            <<: [*leather, *plate, *void]
+            <<: [*plate, *void]
           scout:
             <<: [*leather, *void]
           healer:
-            <<: [*cloth, *leather, *plate, *void]
+            <<: [*plate, *void]
           warden:
-            <<: [*cloth, *leather, *void]
+            <<: [*leather, *void]
           mage:
             <<: [*cloth, *void]
           summoner:
             <<: [*cloth, *void]
           psionicist:
-            <<: [*cloth, *leather, *void]
+            <<: [*leather, *void]
 
       roles:
         tank: &tank_roles
