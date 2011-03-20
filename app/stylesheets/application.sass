@@ -37,6 +37,12 @@ hr
   height: 0
   overflow: hidden
 
+.reset
+  border: none
+  padding: 0
+  margin: 0
+  background: transparent
+
 #container
   width: 75%
   margin: 20px auto 0 auto
@@ -99,6 +105,13 @@ hr
         background: #F2F2F2
         color: black
 
+      .plusOne
+        float: none
+
+        &:hover
+          background: none
+          color: blue
+
     .attribute
       font-weight: bold
 
@@ -121,7 +134,7 @@ hr
 
         &:hover
           background: none
-  
+
     #footer
       padding: 10px 0 0 0
       +opacity(0.25)
@@ -172,25 +185,51 @@ hr
       list-style: disc
 
 table
-  th
-    font-family: 'Aller'
+  margin: 0
+  padding: 0
+  border: none
+  border-collapse: collapse
+  border-spacing: 0
+  vertical-align: baseline
 
+  tr
+    &.loot_status_line
+      text-align: center
+
+  th
+    padding: 5px
+    font-family: 'Aller'
+    background: #EEE
+
+    &.sorting, &.sorting_asc, &.sorting_desc
+      cursor: pointer
     &.editable
       background: #E9E9E9
 
   td
-    border: 1px solid #999
+    padding: 2px
+    border-bottom: 1px solid #DDD
 
+    &.score
+      color: #F92717
+
+  td, th
     &.editable
       background: #E9E9E9
+      cursor: help
     &.character
       font-weight: bold
     &.score
       font-weight: bold
     &.need
       background: #0FFF52
+      font-weight: bold
     &.greed
       background: #92E2A9
+      font-weight: bold
+    &.loyalty
+      background: #FFB0EB
+      font-weight: bold
 
   &.loot_machine_console
     text-align: center
@@ -206,3 +245,6 @@ p.input
 
 .roles_for
   display: none
+
+.dataTables_filter
+  margin: 15px 0

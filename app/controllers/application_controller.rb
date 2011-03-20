@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
   helper :all
-  
+
   protect_from_forgery
 
-  # Ensure a user is signed-in and has adminship.
-  # Otherwise, redirect to the index with a error message.
+  # Ensure a user is signed-in and has adminship before proceeding.
+  # Otherwise, redirect to the index page with a error message.
   #
   def require_adminship
     unless user_signed_in? && current_user.admin?
@@ -20,12 +20,14 @@ class ApplicationController < ActionController::Base
   # Act like a before_render filter. Simple, efficient, robust.
   # No need to hack Rails internals for that matter!
   #
+  # Used to boostrap the rendered page config.
+  #
   def render(*args)
     bootstrap_page
     super
   end
 
-  # You know your host.
+  # Default, shared URL options, like the server's hostname.
   #
   def default_url_options(options = {})
     {
@@ -37,7 +39,7 @@ class ApplicationController < ActionController::Base
   #
   [:created!, :updated!, :deleted!].each do |method|
     define_method method do
-      I18n.t(method.to_s.gsub(/!/, ''), :scope => [controller_name, :flash])
+      I18n.t(method.to_s, :scope => [controller_name, :flash])
     end
   end
   def forbidden!
@@ -73,7 +75,7 @@ class ApplicationController < ActionController::Base
   #     page_title_with :count => Foo.count
   #     page_hint_with  :hint  => " The password is actually #{get_password!}"
   #   end
-  # 
+  #
   def bootstrap_page
     in_current_i18n_scope do
       PAGE_KEYS.each do |key|
@@ -185,12 +187,12 @@ class ApplicationController < ActionController::Base
     aname = action_name.to_sym
 
     return if !locals.is_a?(Hash) || locals.empty?
-    
+
     # init if needed
     @@page_interpolations.store(cname, {}) unless @@page_interpolations.has_key?(cname)
     @@page_interpolations[cname].store(aname, {}) unless @@page_interpolations[cname].has_key?(aname)
 
-    # store it
+    # then store it
     @@page_interpolations[cname][aname][key] ||= {}
     @@page_interpolations[cname][aname][key].merge!(locals)
   end

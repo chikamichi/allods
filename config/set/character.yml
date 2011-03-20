@@ -81,3 +81,29 @@
 
         list:
           <<: [*tank_roles, *healer_roles, *assist_roles, *control_roles, *dps_roles, *void]
+
+      backend:
+        list:
+          - :energy
+          - :mana
+        for:
+          warrior: :energy
+          paladin: :energy
+          scout: :energy
+          healer: :mana
+          warden: :mana
+          mage: :mana
+          summoner: :mana
+          psionicist: :mana
+
+        energy:
+          - :warrior
+          - :paladin
+          - :scout
+
+        mana:
+          - :healer
+          - :warden
+          - :mage
+          - :summoner
+          - :psinicist

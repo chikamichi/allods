@@ -7,8 +7,11 @@
       %th= t('characters.attributes.armour')
       %th= t('characters.attributes.role')
       %th.need= t('loot_statuses.attributes.need')
+      %th.plusOne= link_to '+1', url_for_event(:plusOne), :class => 'plusOne', :'data-type' => 'need'
       %th.greed= t('loot_statuses.attributes.greed')
+      %th.plusOne= link_to '+1', url_for_event(:plusOne), :class => 'plusOne', :'data-type' => 'greed'
       %th.loyalty= t('loot_statuses.attributes.loyalty')
+      %th.plusOne= link_to '+1', url_for_event(:plusOne), :class => 'plusOne', :'data-type' => 'loyalty'
       %th.score= t('loot_statuses.attributes.score')
   %tbody
     = render :view => :inner_content

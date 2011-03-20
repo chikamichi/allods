@@ -5,9 +5,12 @@
     %td.archetype
       - unless loot_status.character.archetype.blank?
         %span= t("characters.archetypes.#{loot_status.character.archetype}")
+    %td.backend
+      - unless loot_status.character.archetype.blank?
+        %span= t("characters.backend.#{configatron.character.backend.for.send(loot_status.character.archetype)}")
     %td.armour
       - unless loot_status.character.archetype.blank?
         %span= display_armours(loot_status.character)
     %td.role
       %span= t("characters.roles.#{loot_status.character.role}") unless loot_status.character.role.blank?
-    = render_widget "loot_status_line_#{loot_status.id}"
+    = render_widget "loot_status_line_#{loot_status.id}", :display, :user => @user, :loot_status_id => loot_status.id

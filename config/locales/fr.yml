@@ -31,16 +31,21 @@ fr:
     display_nickname_and_loot_status: "%{nickname} (%{status})"
 
     flash:
-      updated: 'Modification enregistrée'
+      updated!: 'Modification enregistrée'
 
     attributes:
       nickname: 'Pseudo'
       level: 'Niveau'
-      archetype: 'Classe / archétype'
+      archetype: 'Archétype'
+      backend: 'Type'
       armour: 'Armure'
       role: 'Rôle / build'
       created_at: 'Créé le'
       updated_at: 'Dernière mise à jour le'
+
+    backend:
+      mana: 'Mana'
+      energy: 'Énergie'
 
     roles: &character_roles
       tank: 'Tank'
@@ -73,7 +78,7 @@ fr:
       plate: 'Plaques'
     armour:
       <<: *armour
-    
+
     index:
       title: "Personnages"
       new: "Créer un personnage"
@@ -81,10 +86,10 @@ fr:
       others_characters: "Tous les autres personnages"
       all_characters: "Tous les personnages"
       sign_up_in_hint: "pour créer un personnage"
-    
+
     new:
       title: "Création d'une nouvelle fiche personnage"
-    
+
     show:
       title: "%{nickname}"
       edit: "Modifier mon personnage"
@@ -92,24 +97,24 @@ fr:
       infos: "Informations"
       groups: "Groupes"
       back_to_index: "Retour à la liste"
-    
+
     edit:
       title: "%{nickname} | modification de la fiche"
       hint: "Ces informations sont publiques et modifiables à tout moment. Elles ne rentrent pas directement en compte dans le calcul de vos points, mais peuvent aider lors de l'attribution des récompenses."
       back: "Retour à la fiche"
       back_to_index: "Retour à la liste"
-    
+
     form:
       submit: "Sauvegarder"
 
   loot_machines: &loot_machines
 
     label: "Groupes de joueurs"
-    
+
     attributes:
       title: "Intitulé"
       description: "Description"
-    
+
     form: &loot_machines_form
       submit: "Enregistrer"
       labels:
@@ -120,21 +125,21 @@ fr:
         description: "une description à l'intention des joueurs."
       hints:
         may_add_characters: "Vous pouvez rattacher des joueurs à ce groupe."
-    
+
     index:
       title: "Groupes"
       hint: "Un groupe rassemble plusieurs joueurs pour un raid, un évènement… Il permet de suivre l'évolution de la participation et des loots dans le cas d'un raid récurrent."
       create: "Créer une nouveau groupe"
       sign_up_in_hint: "pour créer un groupe"
-    
+
     new:
       <<: *loot_machines_form
       title: "Créer un nouveau groupe de joueurs"
-    
+
     edit:
       <<: *loot_machines_form
       title: "Modifier un groupe de joueurs"
-    
+
     show:
       title: "Groupe « %{group_title} »"
       hint:
@@ -144,9 +149,9 @@ fr:
       edit: "Modifier"
       console: "Console d'administration"
       back_to_index: "Retour à la liste"
-    
+
     flash:
-      updated: "Màj OK"
+      updated!: "Màj OK"
 
   loot_statuses: &loot_statuses
 
@@ -163,7 +168,7 @@ fr:
         loyalty: "Nombre de participations"
         score: "Un indicateur prenant en compte vos nombres de Besoin, de Cupidité et votre Loyauté"
         status: "Calculé en fonction du score de chacun des membres"
-    
+
     statuses:
       need: "besoin"
       greed: "cupidité"

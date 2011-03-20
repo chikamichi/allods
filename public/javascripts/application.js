@@ -21,8 +21,13 @@
      */
     Allods = (function() {
       var _conf = {
+        colors: {
+          maxScore: '#446EFF',
+          max:      '#87CBFF',
+          wait:     '#C5D2FF'
+        },
         dataTable: {
-          // http://www.datatables.net/usage/ and related submenus
+          // inspect http://www.datatables.net/usage/ and related submenus
           bRetrieve: true,
           bInfo: false,
           bLengthChange: false,
@@ -48,12 +53,13 @@
             $('.roles_for[data-archetype=' + archetype + ']').fadeIn('fast');
           });
         },
-        
+
         compute_status: function() {
           var scores = $('td.score');
 
-          if (!scores.length)
+          if (!scores.length) {
             return null;
+          }
 
           scores = _(scores).map(function(score) {
             return $(score).data('score');
@@ -62,11 +68,11 @@
           max = _.max(scores);
           min = _.min(scores);
 
-          $('td.score').animate({ backgroundColor: '#92E2A9' }, 100);
-          $('td.score[data-score=' + max + ']').animate({ backgroundColor: '#0FFF52' }, 200);
-          $('td:not(.editable)', 'tr.loot_status_line[data-score=' + max + ']').animate({ backgroundColor: '#0FFF52' }, 200);
+          $('td.score').animate({ backgroundColor: _conf.colors.wait }, 100);
+          $('td.score[data-score=' + max + ']').animate({ backgroundColor: _conf.colors.max }, 200);
+          $('td:not(.editable)', 'tr.loot_status_line[data-score=' + max + ']').animate({ backgroundColor: _conf.colors.max }, 200);
         }
-      }
+      };
     })();
 
     /**
@@ -139,5 +145,31 @@
     }).typeWatch($.extend(Allods.conf, {
       callback: Allods.compute_status
     }));
+
+    $('a.plusOne').livequery('click', function(e) {
+      e.preventDefault();
+
+      var that       = $(this)
+        , lm_console = that.parents('.loot_machine_console')
+        , content    = lm_console.children('tbody')
+        , grid       = lm_console.dataTable()
+        , ids        = _.map($('input[type=checkbox]:checked.' + that.data('type')), function(cb) {
+                         return $(cb).parents('.loot_status_line').data('id');
+                       });
+
+      $.post(
+        that.attr('href'),
+        {
+          'ids[]': ids,
+          loot_status_metadata: that.data('type'),
+          loot_machine_id: lm_console.data('id')
+        },
+        function(data) {
+          grid.fnDestroy();
+          content.replaceWith(data);
+          Allods.LMConsole(lm_console);
+        }
+      );
+    });
   });
 })(jQuery);

@@ -1,7 +1,9 @@
 # encoding: UTF-8
 module ApplicationHelper
-  def admin?
-    user_signed_in? && current_user.admin?
+  def admin?(user = current_user)
+    $stderr.puts user.inspect
+    return false if user.nil?
+    user.admin?
   end
 
   def class_for(resource)

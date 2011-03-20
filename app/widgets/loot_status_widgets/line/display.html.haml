@@ -1,4 +1,4 @@
-%td.editable{ :data => { :type => 'need', :url_for_event => url_for_event(:change)  } }= @loot_status.need
-%td.editable{ :data => { :type => 'greed', :url_for_event => url_for_event(:change)  } }= @loot_status.greed
-%td.editable{ :data => { :type => 'loyalty', :url_for_event => url_for_event(:change)  } }= @loot_status.loyalty
+%td.need{ :data => { :type => 'need', :url_for_event => url_for_event(:change)  } }= @loot_status.need
+%td.greed{ :data => { :type => 'greed', :url_for_event => url_for_event(:change)  } }= @loot_status.greed
+%td.loyalty{ :data => { :type => 'loyalty', :url_for_event => url_for_event(:change)  } }= @loot_status.loyalty
 %td.score{ :data => { :score => @loot_status.score.to_i } }= @loot_status.score.to_i

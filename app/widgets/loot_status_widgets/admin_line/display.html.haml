@@ -1,0 +1,13 @@
+%td.editable.need{ :data => { :type => 'need', :url_for_event => url_for_event(:change)  } }= @loot_status.need
+%td.plusOne
+  %input{ :type => :checkbox, :class => 'need' }/
+
+%td.editable.greed{ :data => { :type => 'greed', :url_for_event => url_for_event(:change)  } }= @loot_status.greed
+%td.plusOne
+  %input{ :type => :checkbox, :class => 'greed' }/
+
+%td.editable.loyalty{ :data => { :type => 'loyalty', :url_for_event => url_for_event(:change)  } }= @loot_status.loyalty
+%td.plusOne
+  %input{ :type => :checkbox, :class => 'loyalty' }/
+
+%td.score{ :data => { :score => @loot_status.score.to_i } }= @loot_status.score.to_i

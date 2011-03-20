@@ -3,6 +3,25 @@
 #
 class AllodsWidget < Apotomo::Widget
   helper ApplicationHelper
+
+  attr_reader :_action_name
+
+  before_filter :setup!
+
+  #def render(*args, &block)
+    #if @user && @user.admin?
+      #render :view => "#{@state}.admin" and return
+    #else
+      #super
+    #end
+  #end
+
+  private
+
+  def setup!
+    @state = _action_name
+    @user  = options[:user]
+  end
 end
 
 # FIXME: this is mandatory for Apotomo to find the classes

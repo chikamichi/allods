@@ -18,6 +18,7 @@ module LootStatusWidgets
     private
 
     def setup!
+      super
       @loot_statuses = LootStatus.where(:character_id => options[:character_id])
     end
   end

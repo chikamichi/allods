@@ -7,5 +7,5 @@
   .description= @loot_machine.description
 
   %h3= t('.console')
-  = render_widget "loot_machine_console_#{@loot_machine.id}", :display, :admin => admin?
+  = render_widget "loot_machine_console_#{@loot_machine.id}", :display, :user => current_user, :loot_machine_id => @loot_machine.id
 
