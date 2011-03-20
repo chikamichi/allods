@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails',           '~>3.0'
 
-gem 'apotomo',         '~>1.1'
+gem 'apotomo',         '~>1.1', :git => 'git://github.com/chikamichi/apotomo.git', :branch => 'builders'
 gem 'capistrano',      '~>2.5'
 gem 'compass',         '~>0.10'
 gem 'configatron',     '~>2.7'
