@@ -17,7 +17,7 @@
     });
 
     /**
-     * Allods namespace. Provides helpers and the like.
+     * Allods namespace. Provides helpers and the like. Here's the sh*t.
      */
     Allods = (function() {
       var _conf = {
@@ -33,7 +33,7 @@
           bLengthChange: false,
           bPaginate: false,
           oLanguage: {
-            sSearch: 'Filtrer :',
+            sSearch: '',
             sZeroRecords: 'Aucun résultat.'
           }
         },
@@ -44,16 +44,28 @@
       };
 
       return {
+        /**
+         * Turn a static table into a LootMachine console.
+         */
         LMConsole: function(elt) {
           $(elt).dataTable(_conf.dataTable);
         },
 
+        /**
+         * On Character edit pages, dynamically display appropriate roles checkboxes
+         * matching the current archetype.
+         */
         display_roles_radios_for: function(archetype) {
           $('.roles_for').fadeOut('fast', function() {
             $('.roles_for[data-archetype=' + archetype + ']').fadeIn('fast');
           });
         },
 
+        /**
+         * Dynamic filtering should trigger some status computation, based on
+         * the scores of the filtered elements. This will outline the line(s)
+         * with the highest score.
+         */
         compute_status: function() {
           var scores = $('td.score');
 
@@ -71,12 +83,44 @@
           $('td.score').animate({ backgroundColor: _conf.colors.wait }, 100);
           $('td.score[data-score=' + max + ']').animate({ backgroundColor: _conf.colors.max }, 200);
           $('td:not(.editable)', 'tr.loot_status_line[data-score=' + max + ']').animate({ backgroundColor: _conf.colors.max }, 200);
+        },
+
+        /**
+         * Reset styles which were set by compute_status()
+         */
+        resetFilteringStyle: function() {
+          $('td:not(.editable)', 'tr.loot_status_line').css('background', 'none');
+          $('td.score').css('background', 'none');
+        },
+
+        /**
+         * When filtering is on, display a cross icon to reset filtering.
+         */
+        appendCloseConsoleFilter: function(lm_console) {
+          if (!$('#closeConsoleFilter').length) {
+            elt = '<span id="closeConsoleFilter"><img src="/images/close.svg" /></span>';
+            $('input', '.dataTables_filter').after(elt);
+            $('#closeConsoleFilter img').live('click', function() {
+              Allods.removeCloseConsoleFilter(lm_console);
+            });
+          }
+        },
+
+        /**
+         * Actions to be taken when reseting filtering.
+         */
+        removeCloseConsoleFilter: function(lm_console) {
+          $('input', '.dataTables_filter').val('');
+          $('#closeConsoleFilter').fadeOut('fast', function() { $(this).remove(); });
+          // don't forget to reset filtering
+          lm_console.dataTable().fnFilter('');
+          this.resetFilteringStyle();
         }
       };
     })();
 
     /**
-     * Turn static LootMachine consoles into a dynamic table.
+     * Raise LootMachine consoles to live.
      */
     $('.loot_machine_console').livequery(function(){
       var that = $(this);
@@ -85,7 +129,9 @@
     });
 
     /**
-     * Separated from the previous livequery so that a LootStatus line
+     * If necessary, make LootStatus lines editable (for admin, that is).
+     *
+     * Separated from the previous livequery, so that a LootStatus line
      * can be rendered on its own.
      */
     $('td.editable', '.loot_machine_console[data-admin=true]').livequery(function() {
@@ -100,8 +146,8 @@
           var lm_console = $(this).parents('.loot_machine_console')
             , grid       = lm_console.dataTable();
 
-          // I don't understand why, but at this point the dataTable
-          // features are lost, yet the object remains.
+          // I don't understand why, but at this point, the dataTable
+          // features are lost, yet the object remains…
           // @todo: try not to set bRetrieve, and call dataTable here (it
           // should recreate it). Try to call fnDraw() as well…
           grid.fnDestroy();
@@ -123,6 +169,9 @@
       });
     });
 
+    /**
+     * Raise Character's edit pages to live.
+     */
     $('.archetype')
     .livequery(function() {
       var that     = $(this)
@@ -139,13 +188,31 @@
       Allods.display_roles_radios_for(archetype);
     });
 
+    /**
+     * Monitor what's been typed into a LootMachine console's filtering
+     * input and behave.
+     */
     $('.dataTables_filter input[type=text]').bind('keyup', function() {
-      $('td:not(.editable)', 'tr.loot_status_line').css('background', 'none');
-      $('td.score').css('background', 'none');
+      var that       = $(this)
+        , lm_console = $(that.parent().siblings('.loot_machine_console'));
+
+      if (that.val().length > 0) {
+        Allods.appendCloseConsoleFilter(lm_console);
+      } else {
+        Allods.removeCloseConsoleFilter(lm_console);
+      }
+
+      Allods.resetFilteringStyle();
     }).typeWatch($.extend(Allods.conf, {
       callback: Allods.compute_status
     }));
 
+    /**
+     * Raise plusOne links to live.
+     *
+     * They will trigger a request to increment selected LootStatus lines
+     * counters.
+     */
     $('a.plusOne').livequery('click', function(e) {
       e.preventDefault();
 
