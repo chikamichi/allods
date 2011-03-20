@@ -6,6 +6,9 @@
   %h3.first= t('loot_machines.attributes.description')
   .description= @loot_machine.description
 
-  %h3= t('.console')
+  - if admin?
+    %h3= t('.admin_console')
+  - else
+    %h3= t('.console')
   = render_widget "loot_machine_console_#{@loot_machine.id}", :display, :user => current_user, :loot_machine_id => @loot_machine.id
 

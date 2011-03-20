@@ -40,7 +40,25 @@
         }
       };
 
+      this.pad = function(number, length) {
+        var str = '' + number;
+
+        while (str.length < length) {
+          str = '0' + str;
+        }
+
+        return str;
+      };
+
+      this.randInteger = function(max, pad) {
+        return this.pad(Math.floor(Math.random() * max), pad);
+      };
+
       return {
+        setBackground: function() {
+          $('body').css('background', 'url(../images/bg' + randInteger(3, 2) + '.jpg) no-repeat center center fixed');
+        },
+
         /**
          * Turn a static table into a LootMachine console.
          */
@@ -115,6 +133,8 @@
         }
       };
     })();
+
+    Allods.setBackground();
 
     /**
      * Raise LootMachine consoles to live.

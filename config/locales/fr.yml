@@ -147,7 +147,8 @@ fr:
         one: "1 joueur actif"
         other: "%{count} joueurs actifs"
       edit: "Modifier"
-      console: "Console d'administration"
+      console: 'Suivi des personnages'
+      admin_console: "Console d'administration"
       back_to_index: "Retour à la liste"
 
     flash:

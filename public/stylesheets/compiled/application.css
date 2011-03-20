@@ -12,7 +12,6 @@
 
 /* line 8, ../../../app/stylesheets/application.sass */
 body {
-  background: url(../../images/bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -404,4 +403,8 @@ p.input label:first-child {
   width: 24px;
   vertical-align: -7px;
   padding: 0 0 0 5px;
+}
+/* line 279, ../../../app/stylesheets/application.sass */
+.dataTables_filter #closeConsoleFilter img:hover {
+  cursor: pointer;
 }
