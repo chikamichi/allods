@@ -8,14 +8,6 @@ class AllodsWidget < Apotomo::Widget
 
   before_filter :setup!
 
-  #def render(*args, &block)
-    #if @user && @user.admin?
-      #render :view => "#{@state}.admin" and return
-    #else
-      #super
-    #end
-  #end
-
   private
 
   def setup!
