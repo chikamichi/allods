@@ -56,7 +56,7 @@
 
       return {
         setBackground: function() {
-          $('body').css('background', 'url(../images/bg' + randInteger(3, 2) + '.jpg) no-repeat center center fixed');
+          $('body').css('background', 'url(../images/bg' + randInteger(1, 2) + '.jpg) no-repeat center center fixed');
         },
 
         /**
@@ -134,7 +134,8 @@
       };
     })();
 
-    Allods.setBackground();
+    // I'll keep using a static bg for the moment, no good pics in stock
+    //Allods.setBackground();
 
     /**
      * Raise LootMachine consoles to live.
