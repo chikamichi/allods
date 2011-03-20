@@ -3,6 +3,18 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  # Ensure a user is signed-in and has an activated account before proceeding.
+  # User activation is done by admins, user being inactive by default.
+  #
+  # Otherwise, redirect to the index page with a error message.
+  #
+  def require_active_user
+    unless current_user.active?
+      flash[:error] = must_be_active!
+      redirect_to root_url
+    end
+  end
+
   # Ensure a user is signed-in and has adminship before proceeding.
   # Otherwise, redirect to the index page with a error message.
   #

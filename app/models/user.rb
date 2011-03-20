@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :rememberable, :registerable, :trackable, :timeoutable,
          :validatable, :token_authenticatable,
          :timeout_in => 2.hours
-  
+
   has_many :characters
 
   attr_accessible :email, :password, :password_confirmation
@@ -32,6 +32,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  state_machine :status, :initial => :inactive do
+    event :activate do
+      transition any => :active
+    end
+
+    event :deactivate do
+      transition any => :inactive
+    end
+  end
+
   private
 
   def log_message(event, metadata = nil, object = nil)
@@ -39,10 +49,10 @@ class User < ActiveRecord::Base
 
     when :access_level_change
       "#{email} (##{id}) has been granted #{metadata[:level]}"
-    
+
     when :invalid_access_level_change
       "#{email} (##{id}) has already been granted #{metadata[:level]}, event ignored"
-    
+
     else
       return nil
     end

@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
                     :character_id => @character.id)
   end
 
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!,  :except => [:index, :show]
 
   # @get
   #
