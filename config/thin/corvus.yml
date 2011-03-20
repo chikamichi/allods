@@ -9,6 +9,6 @@ require: ['rubygems']
 
 environment: corvus
 max_persistent_conns: 512
-servers: 3
+servers: 2
 daemonize: true
 chdir: /home/jd/allods/webapp/current
