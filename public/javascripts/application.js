@@ -7,11 +7,8 @@
      * Fade flash messages out.
      */
     $('.flash')
-    .animate({
-      opacity: 0.25
-    }, 5000, function() {
-      // Animation complete.
-      $(this).delay(2000).fadeOut('slow', function() {
+    .effect('slide', function() {
+      $(this).delay(5000).fadeOut('slow', function() {
         $(this).remove();
       });
     });

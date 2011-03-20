@@ -1,7 +1,7 @@
 !!! Strict
 %html
   %head
-    %title= h(yield(:title) || "Devise")
+    %title= h(yield(:title) || "Allods")
     = csrf_meta_tag
     = stylesheet_link_tag 'compiled/application.css', :media => 'screen, projection'
     /[if IE]
@@ -13,24 +13,7 @@
   %body
     #container
       #top
-        #header
-          #links
-            %p.home= link_to t('header.home'), root_path
-            - flash.each do |name, msg|
-              = content_tag :div, msg, :id => "flash_#{name}", :class => 'flash' if msg.is_a?(String)
-
-          #user_login_box
-            - if user_signed_in?
-              = current_user.email
-              |
-              = link_to t('header.my_infos'), edit_user_registration_path
-              |
-              = link_to t('auth.sign_out'), destroy_user_session_path
-
-            - else
-              = link_to t('auth.sign_in'), new_user_session_path
-              |
-              = link_to t('auth.sign_up'), new_user_registration_path
+        = render :partial => 'shared/header'
 
         #page_infos
           - if show_title?

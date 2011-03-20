@@ -63,7 +63,12 @@ hr
 
     #header
       margin: 0
-      padding: 0
+      padding: 0 0 15px 0
+
+      .admin
+        color: #666
+      .delimiter
+        color: #333
 
       #links
         float: left
@@ -83,13 +88,11 @@ hr
 
       #user_login_box
         float: right
-        width: 70%
+        width: auto
         text-align: right
 
     #page_infos
       clear: both
-      margin: 0
-      padding: 2px 0 0 0
 
   #content
     padding: 20px 25px
@@ -139,8 +142,16 @@ hr
       padding: 10px 0 0 0
       +opacity(0.25)
       clear: both
+      color: #666
       font-size: 10px
       text-align: center
+
+      a
+        color: #666
+
+        &:hover
+          background: none
+          color: red
 
 #flash_notice, #flash_alert, #flash_error
   padding: 5px 15px
@@ -148,13 +159,13 @@ hr
   float: left
 
 #flash_notice
-  color: #A4FF61
+  color: #00FF23
 
 #flash_error
-  color: #FF2E1D
+  color: #FF1300
 
 #flash_alert
-  color: #FBFF19
+  color: #FFEF00
 
 .fieldWithErrors
   display: inline
