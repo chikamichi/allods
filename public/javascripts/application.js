@@ -189,7 +189,7 @@
      * Monitor what's been typed into a LootMachine console's filtering
      * input and behave.
      */
-    $('.dataTables_filter input[type=text]').bind('keyup', function() {
+    $('.dataTables_filter input[type=text]').livequery('keyup', function() {
       var that       = $(this)
         , lm_console = $(that.parent().siblings('.loot_machine_console'));
 
@@ -200,9 +200,11 @@
       }
 
       Allods.resetFilteringStyle();
-    }).typeWatch($.extend(Allods.conf, {
-      callback: Allods.compute_status
-    }));
+    }).livequery(function() {
+      $(this).typeWatch($.extend(Allods.conf, {
+        callback: Allods.compute_status
+      }));
+    });
 
     /**
      * Raise plusOne links to live.
