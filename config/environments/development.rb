@@ -27,4 +27,3 @@ Allods::Application.configure do
 
   config.action_mailer.default_url_options = { :host => MY_DOMAIN }
 end
-

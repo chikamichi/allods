@@ -34,7 +34,6 @@ module LootMachineWidgets
 
     # @group Events
 
-
     def change(event)
       setup!
 
