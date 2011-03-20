@@ -15,19 +15,18 @@ module Allods
 
     config.generators do |g|
       g.template_engine :haml
-      g.test_framework :rspec
+      g.test_framework  :rspec
     end
 
     config.action_view.javascript_expansions[:defaults]       = %w(rails underscore)
-    config.action_view.javascript_expansions[:jquery_plugins] = %w(jquery.livequery.js jquery.dataTables.js jquery.jeditable.js jquery.typewatch.js)
-    
+    config.action_view.javascript_expansions[:jquery_plugins] = %w(jquery.livequery.js jquery.dataTables.js
+                                                                   jquery.jeditable.js jquery.typewatch.js)
+
     config.after_initialize do
       unless Rails.env.production? || Rails.env.corvus?
         require "#{Rails.root}/spec/spec_helper"
       end
 
-      SimpleForm.wrapper_tag = :p
-      
       $stderr.puts 'Using default locale ' + I18n.locale.inspect
     end
   end

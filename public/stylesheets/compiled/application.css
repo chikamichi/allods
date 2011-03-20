@@ -371,3 +371,21 @@ p.input label:first-child {
 .dataTables_filter {
   margin: 15px 0;
 }
+/* line 252, ../../../app/stylesheets/application.sass */
+.dataTables_filter input {
+  border: 1px solid #dddddd;
+  background: #c9cadf;
+  font-weight: bold;
+  padding: 3px 2px;
+}
+/* line 258, ../../../app/stylesheets/application.sass */
+.dataTables_filter input:hover {
+  background: #446eff;
+  color: white;
+}
+/* line 263, ../../../app/stylesheets/application.sass */
+.dataTables_filter #closeConsoleFilter img {
+  width: 24px;
+  vertical-align: -7px;
+  padding: 0 0 0 5px;
+}
