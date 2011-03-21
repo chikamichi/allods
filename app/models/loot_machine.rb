@@ -12,6 +12,8 @@ class LootMachine < ActiveRecord::Base
                     :show     => [:description],
                     :editable => [:title, :description]
 
+  markdownize! :description
+
   # Save a new version of the LootMachine. This will save versions
   # for each associated LootStatus as well.
   #

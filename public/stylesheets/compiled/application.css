@@ -12,7 +12,7 @@
 
 /* line 8, ../../../app/stylesheets/application.sass */
 body {
-  background: url(../../images/bg00.jpg) no-repeat center center fixed;
+  background: #010810 url(../../images/bg00.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -215,7 +215,11 @@ hr {
 #container #content .button a:hover {
   background: none;
 }
-/* line 141, ../../../app/stylesheets/application.sass */
+/* line 142, ../../../app/stylesheets/application.sass */
+#container #content .description > h3:first-child {
+  margin-top: 0;
+}
+/* line 145, ../../../app/stylesheets/application.sass */
 #container #content #footer {
   padding: 10px 0 0 0;
   opacity: 0.25;
@@ -226,44 +230,44 @@ hr {
   font-size: 10px;
   text-align: center;
 }
-/* line 149, ../../../app/stylesheets/application.sass */
+/* line 153, ../../../app/stylesheets/application.sass */
 #container #content #footer a {
   color: #666666;
 }
-/* line 152, ../../../app/stylesheets/application.sass */
+/* line 156, ../../../app/stylesheets/application.sass */
 #container #content #footer a:hover {
   background: none;
   color: red;
 }
 
-/* line 156, ../../../app/stylesheets/application.sass */
+/* line 160, ../../../app/stylesheets/application.sass */
 #flash_notice, #flash_alert, #flash_error {
   padding: 5px 15px;
   margin: 0;
   float: left;
 }
 
-/* line 161, ../../../app/stylesheets/application.sass */
+/* line 165, ../../../app/stylesheets/application.sass */
 #flash_notice {
   color: #00ff23;
 }
 
-/* line 164, ../../../app/stylesheets/application.sass */
+/* line 168, ../../../app/stylesheets/application.sass */
 #flash_error {
   color: #ff1300;
 }
 
-/* line 167, ../../../app/stylesheets/application.sass */
+/* line 171, ../../../app/stylesheets/application.sass */
 #flash_alert {
   color: #ffef00;
 }
 
-/* line 170, ../../../app/stylesheets/application.sass */
+/* line 174, ../../../app/stylesheets/application.sass */
 .fieldWithErrors {
   display: inline;
 }
 
-/* line 173, ../../../app/stylesheets/application.sass */
+/* line 177, ../../../app/stylesheets/application.sass */
 #errorExplanation {
   width: 400px;
   border: 2px solid #cf0000;
@@ -272,7 +276,7 @@ hr {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 180, ../../../app/stylesheets/application.sass */
+/* line 184, ../../../app/stylesheets/application.sass */
 #errorExplanation h2 {
   text-align: left;
   font-weight: bold;
@@ -282,23 +286,23 @@ hr {
   background-color: #cc0000;
   color: white;
 }
-/* line 188, ../../../app/stylesheets/application.sass */
+/* line 192, ../../../app/stylesheets/application.sass */
 #errorExplanation p {
   color: #333333;
   margin-bottom: 0;
   padding: 8px;
 }
-/* line 192, ../../../app/stylesheets/application.sass */
+/* line 196, ../../../app/stylesheets/application.sass */
 #errorExplanation ul {
   margin: 2px 24px;
 }
-/* line 194, ../../../app/stylesheets/application.sass */
+/* line 198, ../../../app/stylesheets/application.sass */
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
 }
 
-/* line 198, ../../../app/stylesheets/application.sass */
+/* line 202, ../../../app/stylesheets/application.sass */
 table {
   margin: 0;
   padding: 0;
@@ -307,105 +311,105 @@ table {
   border-spacing: 0;
   vertical-align: baseline;
 }
-/* line 207, ../../../app/stylesheets/application.sass */
+/* line 211, ../../../app/stylesheets/application.sass */
 table tr.loot_status_line {
   text-align: center;
 }
-/* line 210, ../../../app/stylesheets/application.sass */
+/* line 214, ../../../app/stylesheets/application.sass */
 table th {
   padding: 5px;
   font-family: "Aller";
   background: #eeeeee;
 }
-/* line 215, ../../../app/stylesheets/application.sass */
+/* line 219, ../../../app/stylesheets/application.sass */
 table th.sorting, table th.sorting_asc, table th.sorting_desc {
   cursor: pointer;
 }
-/* line 217, ../../../app/stylesheets/application.sass */
+/* line 221, ../../../app/stylesheets/application.sass */
 table th.editable {
   background: #e9e9e9;
 }
-/* line 220, ../../../app/stylesheets/application.sass */
+/* line 224, ../../../app/stylesheets/application.sass */
 table td {
   padding: 2px;
   border-bottom: 1px solid #dddddd;
 }
-/* line 224, ../../../app/stylesheets/application.sass */
+/* line 228, ../../../app/stylesheets/application.sass */
 table td.score {
   color: #f92717;
 }
-/* line 228, ../../../app/stylesheets/application.sass */
+/* line 232, ../../../app/stylesheets/application.sass */
 table td.editable, table th.editable {
   background: #e9e9e9;
   cursor: help;
 }
-/* line 231, ../../../app/stylesheets/application.sass */
+/* line 235, ../../../app/stylesheets/application.sass */
 table td.character, table th.character {
   font-weight: bold;
 }
-/* line 233, ../../../app/stylesheets/application.sass */
+/* line 237, ../../../app/stylesheets/application.sass */
 table td.score, table th.score {
   font-weight: bold;
 }
-/* line 235, ../../../app/stylesheets/application.sass */
+/* line 239, ../../../app/stylesheets/application.sass */
 table td.need, table th.need {
   background: #0fff52;
   font-weight: bold;
 }
-/* line 238, ../../../app/stylesheets/application.sass */
+/* line 242, ../../../app/stylesheets/application.sass */
 table td.greed, table th.greed {
   background: #92e2a9;
   font-weight: bold;
 }
-/* line 241, ../../../app/stylesheets/application.sass */
+/* line 245, ../../../app/stylesheets/application.sass */
 table td.loyalty, table th.loyalty {
   background: #ffb0eb;
   font-weight: bold;
 }
-/* line 245, ../../../app/stylesheets/application.sass */
+/* line 249, ../../../app/stylesheets/application.sass */
 table.loot_machine_console {
   text-align: center;
 }
 
-/* line 248, ../../../app/stylesheets/application.sass */
+/* line 252, ../../../app/stylesheets/application.sass */
 label {
   display: block;
 }
 
-/* line 253, ../../../app/stylesheets/application.sass */
+/* line 257, ../../../app/stylesheets/application.sass */
 p.input label:first-child {
   font-weight: bold;
   padding-bottom: 5px;
 }
 
-/* line 257, ../../../app/stylesheets/application.sass */
+/* line 261, ../../../app/stylesheets/application.sass */
 .roles_for {
   display: none;
 }
 
-/* line 260, ../../../app/stylesheets/application.sass */
+/* line 264, ../../../app/stylesheets/application.sass */
 .dataTables_filter {
   margin: 15px 0;
 }
-/* line 263, ../../../app/stylesheets/application.sass */
+/* line 267, ../../../app/stylesheets/application.sass */
 .dataTables_filter input {
   border: 1px solid #dddddd;
   background: #c9cadf;
   font-weight: bold;
   padding: 3px 2px;
 }
-/* line 269, ../../../app/stylesheets/application.sass */
+/* line 273, ../../../app/stylesheets/application.sass */
 .dataTables_filter input:hover {
   background: #446eff;
   color: white;
 }
-/* line 274, ../../../app/stylesheets/application.sass */
+/* line 278, ../../../app/stylesheets/application.sass */
 .dataTables_filter #closeConsoleFilter img {
   width: 24px;
   vertical-align: -7px;
   padding: 0 0 0 5px;
 }
-/* line 279, ../../../app/stylesheets/application.sass */
+/* line 283, ../../../app/stylesheets/application.sass */
 .dataTables_filter #closeConsoleFilter img:hover {
   cursor: pointer;
 }

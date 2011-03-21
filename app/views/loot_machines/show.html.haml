@@ -3,8 +3,7 @@
 .button= link_to t('.back_to_index'), loot_machines_path
 
 %div.loot_machine
-  %h3.first= t('loot_machines.attributes.description')
-  .description= @loot_machine.description
+  .description= raw @loot_machine.rendered_description
 
   - if admin?
     %h3= t('.admin_console')
