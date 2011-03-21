@@ -11,7 +11,7 @@ class Character < ActiveRecord::Base
   # @todo: maybe build a LevelValidator
   validates_presence_of     :level
   validates_numericality_of :level, :only_integer => true
-  validates_inclusion_of    :level, :in => 1..45
+  validates_inclusion_of    :level, :in => configatron.character.levels.min..configatron.character.levels.max
 
   expose_attributes :public => [:nickname, :level, :archetype, :role, :created_at],
                     :show   => [:level, :archetype, :role]
