@@ -14,7 +14,7 @@ class Character < ActiveRecord::Base
   validates_inclusion_of    :level, :in => 1..45
 
   expose_attributes :public => [:nickname, :level, :archetype, :role, :created_at],
-                    :show   => [:level, :archetype, :role, :created_at]
+                    :show   => [:level, :archetype, :role]
 
   scope :for, lambda { |user|
     { :conditions => { :user_id => user.id } }
