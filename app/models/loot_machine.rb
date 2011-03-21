@@ -1,3 +1,5 @@
+# A LootMachine is basically a dynamic group of characters. As they take part to events
+# the group is involved into, like a recurring raid, the may earn loots, hence the name.
 class LootMachine < ActiveRecord::Base
   has_many :loot_statuses
   has_many :characters, :through => :loot_statuses, :validate => false
@@ -8,8 +10,8 @@ class LootMachine < ActiveRecord::Base
 
   accepts_nested_attributes_for :loot_statuses, :characters, :allow_destroy => true
 
-  expose_attributes :public   => [:title, :description],
-                    :show     => [:description],
+  expose_attributes :public   => [:title, :rendered_description],
+                    :show     => [:rendered_description],
                     :editable => [:title, :description]
 
   markdownize! :description
