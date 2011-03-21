@@ -57,6 +57,9 @@ namespace :db do
   task :create do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} rake db:create:all"
   end
+  task :migrate do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} rake db:migrate"
+  end
 end
 namespace :fs do
   desc 'Create filesystem required folders'
@@ -79,6 +82,7 @@ end
 after  'deploy:update_code', 'fs:create'
 after  'deploy:symlink',     'bundle:install'
 #after  'bundle:install',     'db:create'
+after  'bundle:install',     'db:migrate'
 after  'deploy:symlink',     'deploy:cleanup'
 before 'deploy:restart',     'thin:copy'
 
