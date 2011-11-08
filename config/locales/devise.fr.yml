@@ -1,21 +1,29 @@
-#########################################################################################################
-# I18n French translation for Devise (http://github.com/plataformatec/devise)
-# I18n traduction française pour Devise        
-######################################################################################################### 
-
 fr:
   errors:
     messages:
       not_found: "n'a pas été trouvé(e)"
-      already_confirmed: "a déjà été confirmé(e)"
+      already_confirmed: "a déjà été validé(e)"
       not_locked: "n'était pas verrouillé(e)"
-
+      not_saved:
+        one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+        other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
   devise:
+    common:
+      remember_me: 'Se souvenir de moi'
+      sign_in: 'Se connecter'
+    shared:
+      sign_in: "Se connecter"
+      sign_up: "S'enregistrer"
+      forgot_password: "Mot de passe oublié ?"
+      didnt_receive_confirmation_instructions?: "Email de validation non reçu ?"
+      didnt_receive_unlock_instructions?: "Email de déverrouillage non reçu ?"
+      sign_in_with_omniauth: "Se connecter via %{provider}"
     failure:
+      already_authenticated: "Vous êtes déjà connecté !"
       unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
-      unconfirmed: "Vous devez confirmer votre compte pour continuer."
+      unconfirmed: "Vous devez valider votre compte pour continuer."
       locked: "Votre compte est verrouillé."
-      invalid: "Courriel ou mot de passe incorrect."
+      invalid: "Email ou mot de passe incorrect."
       invalid_token: "Jeton d'authentification incorrect."
       timeout: "Votre session est expirée, veuillez vous reconnecter pour continuer."
       inactive: "Votre compte n'est pas encore activé."
@@ -23,83 +31,51 @@ fr:
       signed_in: "Connecté."
       signed_out: "Déconnecté."
     passwords:
-      send_instructions: "Vous allez recevoir un courriel contenant des instructions pour changer votre mot de passe."
-      updated: "Votre mot de passe a été changé. Vous êtes maintenant connecté."
+      change_your_password: "Changez votre mot de passe"
+      new_password: "Nouveau mot de passe"
+      confirm_new_password: "Confirmer le nouveau mot de passe"
+      change_my_password: "Changer mon mot de passe"
+      send_reset_password_instructions: "Envoyez-moi les instructions de réinitialisation"
+      send_instructions: 'Vous allez recevoir les instructions de réinitialisation du mot de passe dans quelques instants'
+      updated: 'Votre mot de passe a été édité avec succès, vous êtes maintenant connecté'
     confirmations:
-      send_instructions: "Vous allez recevoir un courriel contenant des instructions pour activer votre compte."
-      confirmed: "Votre compte a été activé. Vous êtes maintenant connecté."
+      resend_instructions: 'Ré-envoyer les instructions de confirmation'
+      send_instructions: 'Vous allez recevoir les instructions nécessaires à la confirmation de votre compte dans quelques minutes'
+      confirmed: 'Votre compte a été validé, vous êtes maintenant connecté'
     registrations:
-      user:
-        signed_up: "Votre inscription est enregistrée."
-        updated: "Votre mise à jour a été prise en compte."
-        destroyed: "Votre compte a été supprimé."
+      signed_up: 'Bienvenu, vous êtes connecté'
+      edit: "Editer %{resourcename}"
+      leave_blank: "laissez vide si vous ne désirez pas le changer"
+      current_password_label: "Nous avons besoin de votre mot de passe actuel pour confirmer les changements"
+      update: 'Modifier'
+      unhappy: "Mécontent"
+      cancel_my_account: "Supprimer mon compte"
+      confirm: "Êtes-vous sûr ?"
+      back: "Retour"
+      inactive_signed_up: "Votre compte a été trouvé. Cependant, nous n'avons pas pu vous connecter car votre compte est %{reason}."
+      updated: 'Votre compte a été modifié avec succès.'
+      destroyed: 'Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt.'
     unlocks:
-      send_instructions: "Vous allez recevoir un courriel avec des instructions pour déverrouiller votre compte."
-      unlocked: "Votre compte est déverrouillé. Vous êtes maintenant connecté."
+      resend_instructions: "Ré-envoyer les instructions de déblocage"
+      send_instructions: 'Vous allez recevoir les instructions nécessaires au déblocage de votre compte dans quelques instants'
+      unlocked: 'Votre compte a été débloqué avec succès, vous êtes maintenant connecté.'
+    omniauth_callbacks:
+      success: 'Authentifié avec succès via %{kind}.'
+      failure: "Nous n'avons pas pu vous authentifier via %{kind} : '%{reason}'."
     mailer:
-      confirmation_instructions: "Instructions de confirmation"
-      reset_password_instructions: "Instructions pour changer le mot de passe"
-      unlock_instructions: "Instructions pour déverrouiller le compte"
-      
-    ##########################################################################################################
-    # For generated views: By "rails generate devise_views".
-    #                      Assuming to use I18n "Lazy" lookup, except for the ones under "common" namespace.
-    #                      e.g. Under views/devise/confirmations/new.html.erb, 
-    #                           <h2>Resend confirmation instructions</h2>
-    #                           is changed to
-    #                           <h2><%= t(".resend_confirmation_instructions") %></h2>
-    #                           locally.
-    ########################################################################################################## 
-    common:
-      hello: "Bonjour"
-      sign_in: "Se connecter"
-      sign_up: "S'enregistrer"
-      remember_me: "Se souvenir de moi"
-    shared:
-      links:    
-        forgot_your_password?: "Mot de passe oublié ?"
-        didnt_receive_confirmation_instructions?: "Vous n'avez pas reçu de courriel de confirmation ?"
-        didnt_receive_unlock_instructions?: "Vous n'avez pas reçu de courriel de déverrouillage de votre compte ?"
-    confirmations:
-      new:
-        resend_confirmation_instructions: "Renvoyer le courriel de confirmation"
-    mailer:
+      hello: "Bienvenu %{email} !"
+      welcome: "Bienvenu %{email} !"
+      confirm: "Valider mon compte"
+      change: 'Changer mon mot de passe'
+      someone_requested: "Un changement de mot de passe a été demandé. Vous pouvez le faire en cliquant sur le lien ci-dessous."
+      please_ignore: "Si vous n'avez pas fait cette demande, veuillez ignorer cet email."
+      password_wont_change: "Votre mot de passe ne sera pas changé tant que vous n'aurez pas accédé au lien ci-dessus pour en créer un nouveau."
+      locked: "Votre compte a été bloqué à cause d'un nombre excessif de tentatives de connexion."
+      click_to_unlock: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte"
+      unlock: "Déverrouiller mon compte"
       confirmation_instructions:
-        welcome: "Bienvenu(e)"
-        you_can_confirm_your_account_through_the_link_below: "Vous pouvez confirmer votre compte en cliquant sur le lien ci-dessous"
-        confirm_my_account: "Confirmer mon compte"
+        subject: "Instructions de confirmation"
       reset_password_instructions:
-        # For "Someone has requested a link to change your password, and you can do this through the link below."
-        reset_password_instruction: "Un changement de mot de passe a été demandé. Vous pouvez le faire en cliquant sur le lien ci-dessous."
-        change_my_password: "Changer mon mot de passe"
-        # For "If you didn't request this, please ignore this email."
-        wrong_request_instruction: "Si vous n'avez pas demandé ce changement, ignorez ce message."
-        # For "Your password won't change until you access the link above and create a new one."
-        unchange_password_message: "Votre mot de passe ne sera pas changé tant que vous n'aurez pas accédé au lien ci-dessus pour en créer un nouveau."
+        subject: "Instructions pour changer le mot de passe"
       unlock_instructions:
-        # For "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        locked_account_message: "Votre compte a été verrouillé à la suite d'un trop grand nombre de tentatives d'authentification."
-        # For "Click the link below to unlock your account"
-        unlock_account_instruction: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte"
-        unlock_my_account: "Déverrouiller mon compte"
-    passwords:
-      edit: 
-        change_your_password: "Changez votre mot de passe"
-        change_my_password: "Changer mon mot de passe"
-      new:
-        send_me_reset_password_instructions: "Envoyez-moi un courriel pour changer mon mot de passe"
-    registrations:
-      edit:
-        edit: "Modifier mon compte"
-        # For "leave blank if you don't want to change it"
-        password_instruction: "Laisser vide si vous ne voulez pas le changer"
-        # For "we need your current password to confirm your changes"
-        current_password_instruction: "Vous devez saisir votre mot de passe courant pour confirmer vos changement"                
-        update: "Mettre à jour"
-        cancel_my_account: "Annuler mon compte"
-        unhappy?: "Pas content(e) ?"
-        are_you_sure?: "Êtes-vous sûr ?"
-        back: "Retour"
-    unlocks:
-      new:
-        resend_unlock_instructions: "Renvoyez le mail pour déverrouiller mon compte"          
+        subject: "Instructions pour déverrouiller le compte"
