@@ -19,16 +19,6 @@ gem 'sqlite3-ruby',    '~>1.3',           :require => 'sqlite3'
 gem 'state_machine',   '~>0.9'
 
 group :development, :test do
-  # irbrc
-  gem 'ruby_parser'
-  gem 'awesome_print'
-  gem 'hpricot'
-  gem 'looksee'
-  gem 'wirble'
-  gem 'hirb'
-  gem 'map_by_method'
-  gem 'what_methods'
-
   gem 'yard'
   gem 'rspec-rails',   '~>2.5'
   gem 'factory_girl',  '~>1.3'
