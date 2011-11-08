@@ -136,7 +136,7 @@ fr:
         title: "un titre pour le raid, l'évènement…"
         description: "une description à l'intention des joueurs."
       hints:
-        may_add_characters: "Vous pouvez rattacher des joueurs à ce groupe."
+        may_add_characters: "Vous pouvez rattacher des joueurs à ce groupe. Attention, les joueurs détachés puis ré-attachés perdent tous leur points !"
 
     index:
       title: "Groupes"
@@ -183,6 +183,7 @@ fr:
         status: "Calculé en fonction du score de chacun des membres"
 
     statuses:
+      active: "actif"
       need: "besoin"
       greed: "cupidité"
 
