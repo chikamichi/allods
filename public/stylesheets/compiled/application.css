@@ -1,13 +1,12 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Aller";
-  src: local("☺"), url('/fonts/Aller/Aller_Rg.ttf') format('truetype');
+  src: url('/fonts/Aller/Aller_Rg.ttf') format('truetype');
 }
 
 @font-face {
   font-family: "Museo";
   src: url('/fonts/url('/fonts/Museo/MuseoSans_500_Italic.otf') format('opentype')');
-  src: local("☺"), url('/fonts/Museo/MuseoSans_500.otf') format('opentype');
+  src: url('/fonts/url('/fonts/Museo/MuseoSans_500_Italic.otf') format('opentype')?iefix') format('eot'), url('/fonts/Museo/MuseoSans_500.otf') format('opentype');
 }
 
 /* line 8, ../../../app/stylesheets/application.sass */
@@ -24,7 +23,7 @@ body {
 
 /* line 18, ../../../app/stylesheets/application.sass */
 h1, h2, h3, h4, h5, h6 {
-  text-shadow: #aaaaaa 1px 1px 1px;
+  text-shadow: #aaaaaa 0px 0px 1px;
   margin: 30px 0 10px 0;
   font-family: "Aller";
 }
@@ -67,9 +66,8 @@ hr {
 #container {
   width: 75%;
   margin: 20px auto 0 auto;
-  opacity: 0.88;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=88);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=88);
+  opacity: 0.88;
 }
 /* line 51, ../../../app/stylesheets/application.sass */
 #container #top {
@@ -86,10 +84,10 @@ hr {
   -ms-border-top-right-radius: 10px;
   -khtml-border-top-right-radius: 10px;
   border-top-right-radius: 10px;
-  -moz-box-shadow: black 2px 2px 10px 0;
-  -webkit-box-shadow: black 2px 2px 10px 0;
-  -o-box-shadow: black 2px 2px 10px 0;
-  box-shadow: black 2px 2px 10px 0;
+  -moz-box-shadow: 2px 2px 10px black;
+  -webkit-box-shadow: 2px 2px 10px black;
+  -o-box-shadow: 2px 2px 10px black;
+  box-shadow: 2px 2px 10px black;
   background: black;
   color: white;
 }
@@ -159,10 +157,10 @@ hr {
   -ms-border-bottom-right-radius: 10px;
   -khtml-border-bottom-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  -moz-box-shadow: black 2px 2px 10px 0;
-  -webkit-box-shadow: black 2px 2px 10px 0;
-  -o-box-shadow: black 2px 2px 10px 0;
-  box-shadow: black 2px 2px 10px 0;
+  -moz-box-shadow: 2px 2px 10px black;
+  -webkit-box-shadow: 2px 2px 10px black;
+  -o-box-shadow: 2px 2px 10px black;
+  box-shadow: 2px 2px 10px black;
   color: black;
 }
 /* line 104, ../../../app/stylesheets/application.sass */
@@ -222,9 +220,8 @@ hr {
 /* line 145, ../../../app/stylesheets/application.sass */
 #container #content #footer {
   padding: 10px 0 0 0;
-  opacity: 0.25;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
+  opacity: 0.25;
   clear: both;
   color: #666666;
   font-size: 10px;

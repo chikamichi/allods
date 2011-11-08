@@ -8,7 +8,11 @@
     - if user_signed_in?
       = current_user.email
       - if current_user.admin?
-        %span.admin (admin)
+        (
+        %span.admin admin
+        |
+        %span.create_user= link_to t('header.create_user'), new_admin_user_path
+        )
       %span.delimiter
         |
       = link_to t('header.my_infos'), edit_user_registration_path

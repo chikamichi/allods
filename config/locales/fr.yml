@@ -25,6 +25,18 @@ fr:
       title: "Allods"
       hint: "Croâ ! Ci-dessous, vous trouverez les ressources pour gérer vos personnages et les groupes."
 
+  admin:
+    users: &users
+      attributes:
+        email: 'Email'
+        password: 'Mot de passe'
+        password_confirmation: 'Confirmation du mot de passe'
+
+      form:
+        submit: 'Créer le compte utilisateur'
+
+    user_account_created: 'Compte utilisateur %{email} créé avec succés.'
+
   characters: &characters
 
     label: "Fiches de personnages"

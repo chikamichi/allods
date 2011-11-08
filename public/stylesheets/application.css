@@ -1,92 +1,137 @@
+/* line 1, sass/application.sass */
 body {
   background-color: #4b7399;
-  font-size: 14px; }
+  font-size: 14px;
+}
 
 @font-face {
   font-family: "Cantarell";
-  src: url("../fonts/Cantarell/Cantarell-regular.ttf"); }
+  src: url("../fonts/Cantarell/Cantarell-regular.ttf");
+}
 
+/* line 9, sass/application.sass */
 a {
-  color: blue; }
-  a img {
-    border: none; }
+  color: blue;
+}
+/* line 10, sass/application.sass */
+a img {
+  border: none;
+}
 
+/* line 14, sass/application.sass */
 .clear {
   clear: both;
   height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
+/* line 19, sass/application.sass */
 #header {
   float: left;
-  width: 20%; }
-  #header p {
-    margin: 0;
-    padding: 0; }
+  width: 20%;
+}
+/* line 23, sass/application.sass */
+#header p {
+  margin: 0;
+  padding: 0;
+}
 
+/* line 28, sass/application.sass */
 #user_login_box {
   float: right;
   width: 70%;
-  text-align: right; }
+  text-align: right;
+}
 
+/* line 33, sass/application.sass */
 #container {
   width: 75%;
   margin: 0 auto;
   background-color: white;
   padding: 20px 40px;
   border: solid 1px black;
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
+/* line 41, sass/application.sass */
 #flash_notice, #flash_alert, #flash_error {
   padding: 5px 8px;
-  margin: 10px 0; }
+  margin: 10px 0;
+}
 
+/* line 45, sass/application.sass */
 #flash_notice {
   background-color: #ccffcc;
-  border: solid 1px #66cc66; }
+  border: solid 1px #66cc66;
+}
 
+/* line 49, sass/application.sass */
 #flash_error {
   background-color: #ff6b62;
   border: solid 1px #ff0e00;
-  color: white; }
+  color: white;
+}
 
+/* line 54, sass/application.sass */
 #flash_alert {
   background-color: #ffcccc;
-  border: solid 1px #cc6666; }
+  border: solid 1px #cc6666;
+}
 
+/* line 58, sass/application.sass */
 .fieldWithErrors {
-  display: inline; }
+  display: inline;
+}
 
+/* line 61, sass/application.sass */
 #errorExplanation {
   width: 400px;
   border: 2px solid #cf0000;
   padding: 0px;
   padding-bottom: 12px;
   margin-bottom: 20px;
-  background-color: #f0f0f0; }
-  #errorExplanation h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: 0;
-    background-color: #cc0000;
-    color: white; }
-  #errorExplanation p {
-    color: #333333;
-    margin-bottom: 0;
-    padding: 8px; }
-  #errorExplanation ul {
-    margin: 2px 24px; }
-    #errorExplanation ul li {
-      font-size: 12px;
-      list-style: disc; }
+  background-color: #f0f0f0;
+}
+/* line 68, sass/application.sass */
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #cc0000;
+  color: white;
+}
+/* line 76, sass/application.sass */
+#errorExplanation p {
+  color: #333333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+/* line 80, sass/application.sass */
+#errorExplanation ul {
+  margin: 2px 24px;
+}
+/* line 82, sass/application.sass */
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}
 
+/* line 87, sass/application.sass */
 table td {
-  border: 1px solid black; }
+  border: 1px solid black;
+}
+/* line 89, sass/application.sass */
 table.loot_machine_console {
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 93, sass/application.sass */
 td.need {
-  background: #0fff52; }
+  background: #0fff52;
+}
+/* line 95, sass/application.sass */
 td.greed {
-  background: #92e2a9; }
+  background: #92e2a9;
+}

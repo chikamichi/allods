@@ -1,0 +1,11 @@
+= simple_form_for user, url: admin_users_path do |u|
+  = u.input :email,
+      :label => t('users.attributes.email')
+
+  = u.input :password,
+      :label => t('users.attributes.password')
+
+  = u.input :password_confirmation,
+    :label => t('users.attributes.password_confirmation')
+
+  = u.submit t('.submit')
