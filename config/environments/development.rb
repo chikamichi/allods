@@ -1,5 +1,5 @@
 Allods::Application.configure do
-  MY_DOMAIN = 'allods.local:3000'
+  MY_DOMAIN = 'allods.dev'
 
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -13,7 +13,6 @@ Allods::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
